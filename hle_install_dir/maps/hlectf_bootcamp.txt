@@ -1,0 +1,12 @@
+Name:		Boot Camp CTF
+Game:		Half-Life Elite Death Match
+Author:	        ~RED!
+
+Boot_Camp is the most popular and most played hldm map ever made. 
+I put together a ctf map that would attract players from both the 
+hldm, op4dm and op4ctf community's. I built this map very close to
+scale. I did this so people who are familiar with the map could play
+it like normal boot_camp. The majority of spawns are in the bridge house
+behind a force field while more of the spawns are located near the truck 
+and around the perimeter of the bridge house. Supplies are placed all around
+the map.

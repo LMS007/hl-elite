@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.54
+	ORIGIN	1024	672	1008
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/hlectf_meanie.bmp"
+	HEIGHT	-129
+}

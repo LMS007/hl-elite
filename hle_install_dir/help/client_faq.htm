@@ -1,0 +1,1095 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>HLE Client FAQ</title>
+<style><!--
+.SpellE
+	{}
+.GramE
+	{}
+.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+<body bgcolor="#ffffff" text="#000000" class="Normal" lang=EN-US>
+<p><font size="5"><strong><a name="top"></a>HLE Client FAQ</strong></font></p>
+<p><A href="#Q1">Q: I play AG and Valve and new to this mod, what do i need to 
+  know?</A><br>
+  <A href="#Q2">Q: I can not join a team, I clicked on a team but I am still in 
+  spectator mode.</A><br>
+  <A href="#Q3">Q: Spectators can not see my hud!</A><br>
+  <A href="#Q4">Q: How do I open up the vgui menu?</A><br>
+  <A href="#Q5">Q: Why won’t winamp work?</A><br>
+  <A href="#Q6">Q: Im confused about the new tdm settings?</A><br>
+  <A href="#Q7">Q: How do I play normal team mode with models?</A><br>
+  <A href="#Q8">Q: I can’t change my hud color?</A><br>
+  <A href="#Q9">Q: I can’t change my gauss color?</A><br>
+  <A href="#Q10">Q: Why are there op4 weapons?</A> <br>
+  <A href="#Q11">Q: Tourney mode is cool, but I don’t like spawning full each 
+  time.</A><br>
+  <A href="#Q12">Q: How I turn my weapon weight off?</A><br>
+  <A href="#Q13">Q: How do I use vrcon as a client?</A><br>
+  <A href="#Q14">Q: How do I change my crosshairs, or add my old ones into hle?</A><br>
+  <A href="#Q15">Q: How do I make new crosshairs?</A><br>
+  <A href="#Q16">Q: How do I vote?</A><br>
+  <A href="#Q17">Q:I voted for new settings and they reset after every level change, 
+  how do I change that?</A><br>
+  <A href="#Q18">Q: How do I do ag_start?</A><br>
+  <A href="#Q19">Q What are the most important new cvars and command I need to 
+  know for hle?</A><br>
+  <A href="#Q20">Q: Does HLE have cheat protection?</A><br>
+  <A href="#Q21">Q: I can’t see my radar</A><br>
+  <A href="#Q22">Q: How do I drop the flag, or a weapon or even my longjump?</A><br>
+  <A href="#Q23">Q: What is CTP mode?</A><br>
+  <A href="#Q24">Q: What’s the deal with the map browser?</A><br>
+  <A href="#Q25">Q: Do scripts work in hle just like ag and valve?</A><br>
+  <A href="#Q26">Q: Are there any new client side commands or cvars?</A></p>
+<A href="#commands">New client commands</A><br>
+<A href="#cvars">New client cvars</A><br>
+<A href="#buttons">New client buttons</A> 
+<p></p>
+<div class=Section1> 
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"><a name="Q1"></a>Q: I play 
+    AG and Valve and new to this mod, what do <span class=SpellE>i</span> need 
+    to know?<br>
+    </span></b><span style="COLOR: silver; FONT-FAMILY: Verdana"><br>
+    <br>
+    </span><b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Skip 
+    the red questions, if any pop out at you, read the answer, otherwise go play 
+    <span
+ class=SpellE>hle</span> for a bit, then come back.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    </span><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q2"></a>Q: I can not join a team, I clicked on a team but I am still 
+    in spectator mode.<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">The problem 
+    is more likely with your <span class=SpellE>config</span> file. Check your 
+    <span class=SpellE>config</span> file for "<span class=SpellE>setinfo</span>" 
+    commands and delete them. <span class=SpellE><span class=GramE>setinfo</span></span> 
+    sends info back to the server however at an expense it takes up space shared 
+    with all info being sent back to the server, namely "name" or "team" 
+    or "model". These bits of information can be cut off if you fill 
+    up the buffer with useless <span class=SpellE>setinfo</span> commands. <span class=SpellE>HLE</span> 
+    requires more of the buffer then valve or <span class=SpellE><span class=GramE>ag</span></span> 
+    because of the <span
+ class=SpellE>hud</span> colors, gauss and crosshairs. The reason for sending that 
+    info back is so other spectators can see your <span class=SpellE><span
+ class=GramE>hud</span></span>! In the case the case of not being able to join 
+    a team, you can bet the team name info is being cut off the buffer.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    <br>
+    </span><b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q3"></a>Q: Spectators can not see my <span class=SpellE><span class=GramE>hud</span></span>!<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana"><SPAN style="FONT-FAMILY: Verdana">Same answer as above. In 
+this case, your <SPAN class=grame>hud</SPAN> color is being cropped or you have 
+your value set to 0.&nbsp; Set the value to 0.5 in the console or in the command 
+menu by pressing ENTER, or typing menu in the console and then clicking on 
+client settings. Then slide the value&nbsp;scroll bar to the middle until the 
+number says 50%.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN></SPAN></p></SPAN>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    </span><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q4"></a>Q: How do I open up the <span class=SpellE>vgui</span> menu?<br>
+    </span></b><br>
+    <span style="COLOR: black; FONT-FAMILY: Verdana">A: By default the bind is bound 
+    to your return key, however if you would like you rebind is the command is 
+    "menu" in the console.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q5"></a>Q: Why won’t <span class=SpellE>winamp</span> work?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span class=SpellE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">Winamp</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> 
+    2.x or 5.x is required. <span class=SpellE><span class=GramE>winamp</span></span> 
+    3 will not work with <span class=SpellE>HLE</span>.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q6"></a>Q: <span class=SpellE>Im</span> confused about the new <span class=SpellE>tdm</span> 
+    settings?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span class=SpellE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">TDM</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> is 
+    <span class=SpellE><span class=GramE>ag</span></span>, and <span class=SpellE>tdm</span> 
+    is based off valve team <span class=SpellE>deathmatch</span> code, in fact 
+    its nearly identical with only subtle additions such as <span class=SpellE>ag_start</span>. 
+    <span class=SpellE>HLE</span> has a new mode call team. It works a bit different 
+    the valve or <span class=SpellE><span class=GramE>ag</span></span>. It is 
+    not based off models, but rather colors. So for example you could be <span
+ class=SpellE>gman</span> model and someone else could be <span class=SpellE>robo</span> 
+    model, but you can both be on the same team. However you will be the same 
+    color. We have redone all the default valve models to make the colors brighter 
+    for this purpose. No other models are allowed to (yet), we will implement 
+    new skins in the future. To change your team simply open up the <span class=SpellE>vgui</span> 
+    (“menu”) and click the change team button. If you want to do it directly in 
+    the console type "<span class=SpellE>changeteam</span> color" where 
+    "color" would either be red, blue, yellow, green, purple, or orange. 
+    No other colors are allowed at this point. So there are a maximum of 6 teams 
+    in <span class=SpellE>HLE</span>. Should a match be occurring while you joined 
+    a server, you will not be allowed to join a <span class=GramE>team,</span> 
+    a vote will be atomically issued if you either click a team in the <span class=SpellE>vgui</span> 
+    or type “<span class=SpellE>changeteam</span> color” in the console. This 
+    applies for people playing as well, you <span class=GramE>cant</span> switch 
+    teams during a match!</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"> <a name="Q7"></a>Q: How do 
+    I play normal team mode with models?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">You cant, 
+    <span class=SpellE>HLE</span> is a new mod with new ideas and concepts, try 
+    to get used to what we have done with it, we feel its an overall improvement 
+    and you just might like it once you get used to it, don’t be afraid =P</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"> <a name="Q8"></a>Q: I can’t 
+    change my <span class=SpellE>hud</span> color?<br>
+    </span></b><br>
+    <span style="COLOR: black; FONT-FAMILY: Verdana">A: Most likely you will be playing 
+    a team mode when you notice you can not change your <span class=SpellE><span
+ class=GramE>hud</span></span> color. The <span class=SpellE><span class=GramE>hud</span></span> 
+    and the gauss are LOCKED in team modes. This is to help players and spectators 
+    know who they are playing for and who they are <span class=SpellE>spectating</span>. 
+    <span class=SpellE>HLE</span> has 5 team modes, Team <span class=SpellE>Deathmatch</span>, 
+    <span class=SpellE>CTP</span>, <span class=SpellE>CTF</span>, Team <span
+ class=SpellE>LMS</span>, <span class=GramE>Team</span> Action. You will not be 
+    able to change any colors while you are playing in these modes unless you 
+    change teams.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q9"></a>Q: I can’t change my gauss color?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Same 
+    as above</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q10"></a>Q: Why are there op4 weapons? <br>
+    </span></b><span style="COLOR: silver; FONT-FAMILY: Verdana"><br>
+    <br>
+    </span><b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">The op4 
+    weapons appear in the practice modes such as Action, <span class=SpellE>LMS</span>, 
+    Duel, Team <span class=SpellE>LMS</span> and Team Action. Or in other words 
+    modes were players spawn with all the weapons. In the other modes, the op4 
+    weapons will only appear if the map contains them. Even after a fully loaded 
+    <span
+ class=SpellE>matchstart</span>, players will not receive any weapon not found 
+    in the map. This goes for valve weapons too. You won’t get <span class=SpellE>tripmines</span> 
+    in crossfire for a loaded match.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q11"></a>Q: Tourney mode is cool, but I don’t like spawning full 
+    each time.<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Tourney 
+    mode has lots of tweaks players can do here the stuff you need to know<span
+ class=GramE>:</span><br>
+    <br>
+    <span class=SpellE>mp_spawnform</span>: 0 = unloaded; 1 = loaded</span></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    <span class=SpellE>mp_spawnlimit</span>: 10 = default, this is the number 
+    <span
+ class=SpellE>frags</span> a player needs to win a round in tourney (note: players 
+    must win by two<span class=GramE>)</span><br>
+    <br>
+    <span class=SpellE>mp_roundclock</span>: pretty much is the time limit for 
+    each tourney round, 500 = default, its based in seconds<br>
+    <br>
+    <span class=SpellE>mp_winlimit</span>: number of won matches to win the map, 
+    this will evoke a level change, its much like a <span class=SpellE>frag</span> 
+    limit. Note that getting a win in tourney requires beating someone, and could 
+    take many <span class=SpellE>frags</span> and/or lots of time.<br>
+    <br>
+    Valves old limits still apply too, however its best to leave <span
+ class=SpellE>fraglimit</span> to 0, its completely meaningless in tourney mode.</span><span style="COLOR: black; FONT-FAMILY: Verdana"></span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"> <a name="Q12"></a>Q: How 
+    I turn my weapon weight off?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Well 
+    if you open up weight.txt found inside your <span class=SpellE>HLE</span> 
+    dir you will see all the weapons in <span class=SpellE>HLE</span> with numbers 
+    next to them. Those numbers are their weight. So if you have a weapon that’s 
+    say 10 and you pick up a new weapon that’s 20, you will automatically change 
+    weapons. If the weight of the new weapon is equal or less, then there will 
+    be no change. If you want no weight, set them all to the same number, or if 
+    you want, edit which wants you want. <span class=SpellE>HLE</span> is the 
+    only mod with client side fully customizable weapon weight, to use it to your 
+    advantage. Remember not to exceed 2 digits and the negative sign is considered 
+    a digit.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"> <a name="Q13"></a>Q: How 
+    do I use <span class=SpellE>vrcon</span> as a client<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">All you 
+    need to know for <span class=SpellE>vrcon</span> is that it works like <span
+ class=SpellE>rcon</span> expect you may not have full permissions to use every 
+    <span
+ class=GramE>command.</span> This is set up by the server admin. To check out which 
+    commands you have, simply type “<span class=SpellE>vgroup</span>” in the console. 
+    To see who else is in your group type “<span class=SpellE>vadministration</span>” 
+    That’s about all you need to know. If an admin does not assign you directly 
+    to a group but gives you a password, you need to set it as such: “<span
+ class=SpellE>vrcon_password</span> name” where name the password you were given. 
+    If you are in a <span class=SpellE>vgroup</span>, you will automatically be 
+    a <span class=SpellE>vadmin</span> again when you rejoin the server, even 
+    if it crashes. The <span class=SpellE>vadmins</span> are saved to a file. 
+    Note that <span class=SpellE>vrcon_password</span> will not add you to a <span
+ class=SpellE>vgroup</span> but only give you temporary password to use it for 
+    that level, remember that password is subject to change. The most permanent 
+    <span
+ class=GramE>way</span> to be <span class=SpellE>vadmin</span> is to be added to 
+    a group by the server admin.</span><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    (refer to <A href="vadmin.html">vadmin.html</A>)</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q14"></a>Q: How do I change my crosshairs, or add my old ones into 
+    <span class=SpellE>hle</span><br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span class=SpellE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">HLE</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> has 
+    some sophisticated tools for crosshairs. You can dynamically change them in 
+    the <span class=GramE>game,</span> you can even change the color of them. 
+    <span
+ class=SpellE>HLE</span> has eight default sets to start you off with including 
+    the original valve set. You need </span><span style="COLOR:
+ silver; FONT-FAMILY: Verdana">&nbsp;</span></p>
+  <p><span class=GramE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">to</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> open 
+    up your <span class=SpellE>vgui</span> by pressing ENTER or typing “menu” 
+    in the console and then left click on client settings. Toward the bottom you 
+    will see a crosshairs button. Simply click that button until you find the 
+    one you want. The text will change to the name of the crosshair set you have 
+    selected. Each set has a unique name. To turn the color feature off or on, 
+    simply click the toggle button next to the crosshair button. <span class=GramE>If 
+    your crosshairs are not white, then its best to turn the color off.</span> 
+    (<span
+ class=GramE>original</span>). To add your own set, simply open up the sprites/crosshairs/ 
+    dir and make a new folder. The folder name will be the name of your crosshair 
+    set. <span class=GramE>For example “john”.</span> Within that new folder simply 
+    drop in all the files associated with your crosshairs, weapon text files and 
+    sprite files alike. Then in the game, go back to the menu and click the crosshairs 
+    button until it changes to “john” The <span class=SpellE>cvar</span> controller 
+    will actually look like this: <span class=SpellE>xhairs</span> “john<span
+ class=GramE>“ inside</span> your <span class=SpellE>config</span> file. “<span
+ class=SpellE>cl_dynamic_xhrs</span>” will be either 1 or 0, this is the coloring 
+    variable.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"><a name="Q15"></a>Q: How do 
+    I make new crosshairs?</span></b></p>
+  <p><b><span
+ style="COLOR: black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">Add any crosshair you wish into the sprites/crosshairs/ dir. 
+    Create a folder with any name you like and place the crosshairs files into 
+    that folder. You may choose new file names and use weapon_.txt files to use 
+    custom sprites </span><span class=GramE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">and</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> coordinates 
+    for each weapon. Simply place all the weapon_.txt files you wish to use into 
+    your new <span class=GramE>crosshair&nbsp; older</span> with all the sprites they 
+    call for. By default <span
+ class=SpellE>hle</span> will use valve's weapon_.txt files from the <span
+ class=SpellE>hle</span> <span class=SpellE>pak</span> file. <span class=SpellE><span
+ class=GramE>hle</span></span> will</span><span class=GramE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">first</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> 
+    search for sprites within the crosshair/<span class=SpellE>yourfolder</span>/&nbsp; 
+    dir and if not found, it will look in the sprites folder in the valve <span class=SpellE>pak</span> 
+    file. So in essence, you only need to add the files which are custom to your 
+    crosshairs into your crosshair folder. Use the examples that come with <span class=SpellE>hle</span> 
+    to help you. You may have a maximum of 16 crosshair sets.</span></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana">To select your crosshairs, 
+    open up the <span class=SpellE>vgui</span> "ENTER" and click "Client 
+    Settings" then press the "Crosshairs" </span><span class=GramE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">button</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> 
+    unless your appear. Or type <span class=SpellE>cl_crosshairs</span> "<span
+ class=SpellE>yourcrosshairs</span>" in reference to <span class=SpellE>yourcrosshairs</span> 
+    folder.&nbsp;</span><span style="COLOR: black; FONT-FAMILY: Verdana">You may add up to 128 crosshairs 
+    custom crosshair folders, but anymore then that will not load. The crosshairs 
+    </span><span class=GramE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">need</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> 
+    to be in grey scale to adjust to the <span class=SpellE>hud</span> color. 
+    White to grayish crosshairs <span class=GramE>work</span> the best. If you 
+    do not </span><span class=GramE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">gray</span></span><span style="COLOR: black; FONT-FAMILY: Verdana"> 
+    scale the crosshairs then use the static <span class=SpellE>cvar</span> and 
+    <span
+ class=SpellE>hle</span> will not overlay your crosshairs with the <span
+ class=SpellE>hud</span> color.&nbsp;Therefore set</span><span class=SpellE><span class=GramE><span style="COLOR:
+ black; FONT-FAMILY: Verdana">cl_dynamic_xhrs</span></span></span><span class=GramE><span
+ style="COLOR: black; FONT-FAMILY: Verdana"> to 0.</span></span><span
+ style="COLOR: black; FONT-FAMILY: Verdana"> There is a button in the <span
+ class=SpellE>vgui</span> next to the crosshairs button for that option.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"> <a name="Q16"></a>Q: How 
+    do I vote?<br>
+    </span></b><br>
+    <span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    <b>A: </b>This is not a stupid question. Most voting in <span class=SpellE>HLE</span> 
+    can be done through the <span
+ class=SpellE>vgui</span>. Type menu in the console to open <span class=GramE>It</span> 
+    up. On the left you have your voting options and on the right you have your 
+    client options. In the middle you have your yes and no vote calls. <span
+ class=GramE>Which you will use if someone else called a vote.</span> Remember 
+    that majority wins! Below that, is your big play button to get you out of 
+    spectator <span class=GramE>mode.</span> To vote simply click on a vote menu, 
+    <span
+ class=GramE>lets</span> use maps and an example. Then within that menu double 
+    click on any map you wish to vote for. It’s not really a double click but 
+    rather 2 single clicks. The reason for this is so you can vote for 2 different 
+    things at once. So if I want, I can single click on a map, and that button 
+    will turn blue, then I can go back and vote for a mode and it will call a 
+    vote for a map and a mode at once. Essentially this is dual voting. If you 
+    clicked a vote accidentally and you don’t wish to vote for that, simply click 
+    “clear vote” or “cancel”. If you only want to vote for one thing, just double 
+    click. You can also vote in the console for votes which don’t appear in the 
+    <span
+ class=SpellE>vgui</span> menu for example<br>
+    <br>
+    “vote eject 3, emit 2 blue”<br>
+    <br>
+    If that passes, that will force the 3rd player into spectator mode and emit 
+    2nd onto the blue team. This is handy during matches when players can not 
+    actually join teams without either voting themselves in with a majority or 
+    having an admin force them in. Remember eject and emit are server commands, 
+    only <span
+ class=SpellE>admins</span> can use them directly, but you can still vote for them. 
+    To find the player numbers type “status” in the console. They are always in 
+    order so the first player to join a serer will be 1.<br>
+    <br>
+    Notice the votes are separated by a comma. Leading spaces will not matter, 
+    just don’t use to “vote” command after the comma again, it know it’s a vote! 
+    If you get an error when you vote, <span class=GramE>its</span> because either 
+    you typed something wrong or that command or variable is not allowed to be 
+    voted or changed by clients. In fact, all commands are banned expect the ones 
+    found in vote.txt which is set by your admin. <span class=SpellE><span class=GramE>rcon_passwrod</span></span> 
+    will probably not be in that list, nor will kick or ban.<br>
+    <br>
+    One finally note, you can vote for a maximum of two items at once, perhaps 
+    in the future I will change this, but its really only used for voting for 
+    mode and a level at the same time.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p> <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <span class=SpellE><a name="Q17"></a>Q<span class=GramE>:I</span></span> voted 
+    for new settings and they reset after every level change, how do I change 
+    that?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Part 
+    of the control an admin retains while allowing clients to change settings 
+    is that settings will always be reset after a level change. Each game mode 
+    runs off a mode dir inside the <span class=GramE>servers</span> <span class=SpellE>hle</span>/modes 
+    folder. Each time a level ends or <span class=GramE>restarts,</span> the <span
+ class=SpellE>config</span> file for that mode will be executed. The only way to 
+    change these settings is the change the <span class=SpellE>config</span> file 
+    and that’s up to the admin. So while you can change settings for a map, they 
+    will be reset for the next players.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    </span><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q18"></a>Q: How do I do <span class=SpellE>ag_start</span>?<br>
+    </span></b><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    <b>A: </b><span class=SpellE>Ag_start</span> is one of the better features 
+    in <span class=SpellE><span class=GramE>ag</span></span>, and this feature 
+    is all fully included into <span class=SpellE>HLE</span> <span
+ class=SpellE>as well</span>, but may be slightly different. The command for <span
+ class=GramE>a</span> <span class=SpellE>ag_start</span> is actually “<span
+ class=SpellE>matchstart</span>”. Now this is a server command only <span
+ class=SpellE>admins</span> can actually type this in. However client by default 
+    can still vote for it via “vote <span class=SpellE>matchstart</span> 1”. There 
+    is also a short client command which <span class=SpellE>automatly</span> calls 
+    a vote “ms 1” There are 4 different <span class=SpellE>matchstarts</span>:<br>
+    <br>
+    <span class=SpellE>matchstart</span> 1 = unloaded <span class=SpellE>matchstart</span>, 
+    all valid players spawn will a pistol and crowbar, all entities reset, all 
+    scores reset, all variables reset. teams &amp; spectators lock, <span
+ class=SpellE>matchqueue</span> is reset<br>
+    <br>
+    <span class=SpellE>matchstart</span> 2 = full <span class=SpellE>matchstart</span>, 
+    all valid players spawn will all weapons found in the level, all entities 
+    reset, all scores reset, all variables reset, teams &amp; spectators lock, 
+    <span
+ class=SpellE>matchqeueu</span> is reset<br>
+    <br>
+    <span class=SpellE>matchstart</span> 3= <span class=SpellE>nostart</span> 
+    <span
+ class=SpellE>matchstart</span>, all valid players will REMAIN where they all, 
+    entities will NOT reset all scores reset, all variables reset, teams &amp; 
+    spectators lock, <span class=SpellE>matchqeueu</span> is reset<br>
+    <br>
+    <span class=SpellE>matchstart</span> 0 = <span class=SpellE>cancle</span> 
+    <span
+ class=SpellE>matchstart</span><br>
+    <br>
+    <span class=SpellE>matchstart</span> 2 will spawn players will every weapon 
+    found in the map ONLY. Weapons not found will be <span class=SpellE><span
+ class=GramE>be</span></span> issued.<br>
+    <br>
+    <span class=GramE>the</span> <span class=SpellE>matchqueue</span> is a list 
+    of players who left the server during the match. They have only a few minutes 
+    to rejoin if they want to be automatically <span class=SpellE>respawned</span> 
+    into the match on the same team with the same mode and retain their old score.<br>
+    <br>
+    Spectators can not join a match and players in the match can not change teams. 
+    If a spectator tries to join a match either by clicking “play” in the <span
+ class=SpellE>vgui</span> or clicking on a team in the <span class=SpellE>vgui</span>, 
+    a vote will automatically be called. Same applies for player in the match 
+    regarding to changing teams. <span class=SpellE>Matchstarts</span> only work 
+    in non practice modes which <span class=GramE>include,</span> Team mode, <span
+ class=SpellE>CTP</span>, <span class=SpellE>CTF</span>, and <span class=SpellE>FFA</span>. 
+    In <span class=SpellE>FFA</span> the teams and team regulations do not apply 
+    quite the same.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    </span><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q19"></a>Q What are the most important new <span class=SpellE>cvars</span> 
+    and command I need to know for <span class=SpellE>hle</span><br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Kind 
+    of a tricky question because not all new <span class=SpellE>cvars</span> work 
+    the same way in every game mode, but they have similarities. If you forget 
+    what a variable does, you can always click help in the <span class=SpellE>vgui</span> 
+    menu in during the game, you just need to remember “menu” is the <span
+ class=SpellE>vgui</span> command.<br>
+    <br>
+    Server stuff<span class=GramE>:</span><br>
+    <br>
+    <span class=SpellE>mp_roundclock</span> is the timer, its not like the <span
+ class=SpellE>timelimit</span>, but rather the time per round, this applies in 
+    tourney, duel, <span class=SpellE>lms</span> and team <span class=SpellE>lms</span>.<br>
+    <br>
+    <span class=SpellE><span class=GramE>mp_spawnlimit</span></span> is really 
+    the <span
+ class=SpellE>frag</span> limit per round in tourney mode, 10 is default.<br>
+    <br>
+    <span class=SpellE><span class=GramE>mp_spawnform</span></span> works in all modes, but 
+basically it follows these rules. 0 = unloaded spawn, 1 = loaded always, or 
+loaded for the first 
+    spawn of a round.&nbsp; Note that full spawns give you all weapons in every map, 
+    which include op4 weapons unlike <span class=SpellE>matchstarts.</span><br>
+    <br>
+    <span class=SpellE>mp_winlimt</span>  applies to round modes where <span
+ class=SpellE>frags</span> really have little to do with a map limit. <span
+ class=GramE>Much like the <span class=SpellE>fraglimt</span>, when the <span
+ class=SpellE>winlimit</span> is reached, the map changes.</span> In <span
+ class=SpellE>lms</span> the <span class=SpellE>winlimit</span> is the number a 
+    time a player is the <span class=SpellE>lms</span>, or in tourney, it’s the 
+    number of victories that player has won. It does not apply to team mode or 
+    <span
+ class=SpellE><span class=GramE>ffa</span></span> but in <span class=SpellE>CTF</span> 
+    it’s the capture limit, and in <span class=SpellE>ctp</span> is the time limit 
+    for which you must control a flag(s) for. When reached, <span class=SpellE>mp_winlimit</span> 
+    this will evoke a level change. <br>
+    <br>
+    "<span class=SpellE>mp_tossitem</span>" This is a separate variable 
+    which control the drop command. In the past it was setup so that you could 
+    not drop a weapon if <span class=SpellE>weaponstay</span> was set to 1. <span
+ class=SpellE>HLE</span> has separated the new because of the new improved drop 
+    menu.<br>
+    <br>
+    <br>
+    Client stuff<span class=GramE>:</span><br>
+    </span><span style="COLOR: silver; FONT-FAMILY: Verdana"><br>
+    “</span><span style="COLOR: black; FONT-FAMILY: Verdana">Drop” This is client 
+    command and it will open up a drop menu, it’s very intuitive and if you learn 
+    it, it can be an advantage in <span class=SpellE>teamplay</span>.<br>
+    <br>
+    “%l, %a, %h, %p” Pretty much works like <span class=SpellE><span class=GramE>ag</span></span>, 
+    but know that loc files are <span class=SpellE>clientside</span> so if some 
+    player on your team does not have the loc files they will see %l rather then 
+    your location. Also know that <span class=SpellE>locfiles</span> can be different 
+    so you many not see the same string as the next player. These commands are 
+    generally used with <span class=SpellE>team_say</span> oppose to say<br>
+    <br>
+    “ms” 0-3 automatically calls a vote for <span class=SpellE>matchstart</span><br>
+    <br>
+    “<span class=SpellE>changeteam</span>" more or less replaces the “model” 
+    <span
+ class=SpellE>cvar</span>, however model is still used, but it will not change 
+    your team. Do not use “team” to change your team, this command is handled 
+    internally.<br>
+    <br>
+    “<span class=GramE>taunt</span>” try it, its funny, you can not be <span
+ class=SpellE>spectating</span> and you can only use it once every 10 seconds.<br>
+    <br>
+    For the rest of the dozens of new variables and commands, refer to the help.txt 
+    file inside of the help dir or click on help in the <span class=SpellE>vgui</span> 
+    menu.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    </span><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q20"></a>Q: Does <span class=SpellE>HLE</span> have cheat protection?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Yes and 
+    No. Most cheats will not work on <span class=SpellE>hle</span>, but there 
+    are always a few that will.&nbsp; Currently we are working on a new method that 
+    may prove to be full proof but until then we will rely on valves anti cheat. 
+    Or better yet, <span class=SpellE>admins</span> can use cheating death or 
+    any other third party <span class=SpellE>anit</span>-cheat system.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR:
+ silver; FONT-FAMILY: Verdana"><br>
+    <br>
+    </span><b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q21"></a>Q: I can’t see my radar<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Radar 
+    only works in team modes. <span class=SpellE><span class=GramE>cl_radar</span></span> 
+    turns the radar on and off for a client. Server <span class=SpellE>admins</span> 
+    can turn the radar off for all clients <span class=SpellE>mp_radar</span>. 
+    If your radar is on and you don’t see any players but there are players in 
+    the server they will either be out of rage or not on your team. You can only 
+    see players on your own team in the radar.<br>
+    <br>
+    The radar can be a very useful tool, learn the use it when you hear sounds 
+    and need assessment of who might be around the corner, if you don’t see a 
+    dot, you know it’s a not friend you will meet.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    </span><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q22"></a>Q: How do I drop the flag, or a weapon or even my <span class=SpellE>longjump</span>?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">The same 
+    way you drop a weapon type “drop” in the console or bind that to a key.<br>
+    A menu will appear and you can select flag by pressing the “F” Key. You can 
+    also directly bind drop keys and bypass the menu by bind a key to “drop flag”<br>
+    The other commands are “drop weapon”, “drop ammo1”, “drop ammo2”, “drop <span
+ class=SpellE>longjump</span>”, “drop health” and “drop battery”. Drop will only 
+    work if the server is set to <span class=SpellE>mp_tossitem</span> 1. Also 
+    the new drop feature is more of a toss, so you can aim up and toss items above 
+    your head unlike to the old method. You are not allowed to drop items near 
+    walls to prevent them from falling outside of a level. Server will also prevent 
+    more then 30 items at once to prevent crashes from too many entities. This 
+    is 30 items per server, so you share that queue with all the players. Dropped 
+    items will disappear after 30 seconds.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    </span><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q23"></a>Q: What is <span class=SpellE>CTP</span> mode?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">It stands 
+    for capture the <span class=GramE>point,</span> Each map will have a given 
+    amount of flags. The flags turn color when you touch them and give you time 
+    while they are the color of your team. Should have 1 flag, that flag will 
+    give your team 1 second for every second you have it. If you have 5 flags 
+    then your team will get 5 seconds per second. The goal of <span class=SpellE>CTP</span> 
+    is get to a time limit set by “<span class=SpellE>mp_winlimit</span>” default 
+    is 45 minutes. Depending on the competition this should take about 10-15 minutes 
+    to reach. <span class=SpellE>Admins</span> can recreate <span
+ class=SpellE>ctp</span> flag files or make new ones for maps which do not exist. 
+    Refer to the <span class=SpellE>ctp</span> help file found inside the help 
+    dir.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    </span><br>
+    <b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q24"></a>Q: What’s the deal with the map browser?<br>
+    </span></b><br>
+    <span style="COLOR: black; FONT-FAMILY: Verdana"><br>
+    <b>A: </b>Just click on a map you with to vote for, maps you don’t have will 
+    appear in gray and maps you have will be blue. If you want to vote for the 
+    next level, click the toggle button at the top of the <span class=SpellE>vgui</span> 
+    menu to change it to “<span
+ class=SpellE>nextlevel</span>” then vote for a map.</span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"><br>
+    <a name="Q25"></a>Q: Do scripts work in <span class=SpellE>hle</span> just 
+    like <span
+ class=SpellE><span class=GramE>ag</span></span> and valve?<br>
+    </span></b><br>
+    <b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR: black; FONT-FAMILY: Verdana">Yes, 
+    scripts work just fine, however there is no need for a <span class=SpellE>longjump</span> 
+    script because we have taken the liberty of actually converting the <span
+ class=SpellE>longjump</span> into a single button. Of course you can use the old 
+    fashioned way, but we figured since 50% of the players use a script, we would 
+    just make it fair for the other 50%. <span class=GramE>simply</span> bind 
+    the <span class=SpellE>longjump</span> to any key via: "+<span
+ class=SpellE>longjump</span>"</span></p>
+  <p><span style="COLOR: black; FONT-FAMILY: Verdana">We have also implemented a 
+    +decent script which is build <span class=SpellE>intot</span> he +jump button. 
+    If you press and hold jump within 250 <span class=SpellE>miliseocnds</span> 
+    of landing, you will automatically jump again. This eliminates the need for 
+    a +decent script and evens the field for players who don’t have such advantages.&nbsp;&nbsp; 
+    Also, like +<span
+ class=SpellE>longjump</span>, +jump works better then its scripted counterpart 
+    because its built into the code.</span></p>
+  <p><b><span style="COLOR: red; FONT-FAMILY: Verdana"><a name="Q26"></a>Q: Are there 
+    any new client side commands or <span class=SpellE>cvars</span>?</span></b></p>
+  <p><b><span
+ style="COLOR: black; FONT-FAMILY: Verdana">A: </span></b><span style="COLOR:
+ black; FONT-FAMILY: Verdana">Yes, here is a complete list of the new client side commands 
+    and <span class=SpellE>cvars</span>. Note that there are also new server commands 
+    and <span class=SpellE>cvars</span> but for info on them, refer to the server 
+    FAQ.</span><span style="COLOR: black; FONT-FAMILY: Verdana"></span></p>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><a name="commands"></a><strong>New client commands:</strong>&nbsp; </p>
+  <table width="725" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+    <tr>
+      <td valign="top"> "<span class=GramE><span style="COLOR: blue" 
+     >help</span></span>"</td>
+      <td width="90%" valign="top"> (opens help menu and list all commands and 
+        <span class=SpellE>cvars</span>)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">menu</span></span>" 
+        </p>
+        </td>
+      <td width="90%" valign="top">(opens the <span class=SpellE>vgui</span> menu 
+        (bind this in the launch menu)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">drop</span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(<span class=SpellE>reviels</span> a drop menu 
+        with drop commands, <span class=SpellE>mp_tossitem</span> must be set 
+        to 1)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">drop</span></span><span
+ 
+      style="COLOR: blue"> weapon</span>"</p>
+        </td>
+      <td width="90%" valign="top">(<span class=SpellE>shotcut</span> to drop 
+        a weapon)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">drop</span></span><span
+ 
+      style="COLOR: blue"> health</span>"&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(<span
+ class=SpellE 
+     >shotcut</span> to drop a health kit)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">drop</span></span><span
+ 
+      style="COLOR: blue"> battery</span>"&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(<span
+ class=SpellE 
+     >shotcut</span> to drop a <span class=SpellE>hev</span> battery)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">drop</span></span><span
+ 
+      style="COLOR: blue"> flag</span>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(<span
+ class=SpellE 
+     >shotcut</span> to drop the flag)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">drop</span></span><span
+ 
+      style="COLOR: blue"> ammo1</span>"&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(<span
+ class=SpellE 
+     >shotcut</span> to drop primary ammo)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">drop</span></span><span
+ 
+      style="COLOR: blue"> ammo2</span>"&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(<span
+ class=SpellE 
+     >shotcut</span> to drop secondary ammo)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">drop</span></span><span
+ 
+      style="COLOR: blue"> <span class=SpellE>longjump</span></span>"</p>
+        </td>
+      <td width="90%" valign="top">(<span class=SpellE>shotcut</span> to drop 
+        the <span class=SpellE>longjump</span>)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">vote</span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(this is <span class=SpellE>folowed</span> 
+        by any command within the <span class=SpellE>mp_validvotes</span> string, 
+        example "vote <span class=SpellE>mp_fraglimit</span> 100, <span
+ class=SpellE>changelevel</span> <span class=SpellE>boot_camp</span>". Two 
+        votes per line max <span class=SpellE>seperated</span> by a comma)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">yes</span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </td>
+      <td width="90%" valign="top"> (vote yes)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">no</span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(vote no)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">info</span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(shows server <span
+ 
+      class=SpellE>cvar</span> settings &amp; player <span class=SpellE>wonid's</span>)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">ms</span></span>" 
+      0-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(calls a vote for <span
+ 
+      class=SpellE>mastartstart</span> #)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >spectate</span></span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(start observer )</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span style="COLOR: blue" 
+     >-<span class=SpellE>spectate</span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(stop <span class=SpellE><span
+ class=GramE 
+     >ovserver</span></span><span class=GramE> )</span></td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span style="COLOR: blue">spec_mode</span></span>" 
+        </p>
+        </td>
+      <td width="90%" valign="top">0-6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(changes spectator views)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >follownext</span></span></span>" </p>
+        </td>
+      <td width="90%" valign="top">0 
+      -*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(based on players)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=GramE><span style="COLOR: blue">taunt</span></span>" 
+        </p>
+        </td>
+      <td width="90%" valign="top">(taunt sound)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >spawnme</span></span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(add self to list, also this will <span class=SpellE>automaticly</span> 
+        vote <span class=SpellE>yoursels</span> into a match if it has started)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span style="COLOR: blue">add_flag</span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(places a flag in the level after a <span class=SpellE>ctp</span> 
+        file was opened, this will be saved to the file)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span style="COLOR: blue">add_loc</span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(places a location in the level after a loc 
+        file was opened, this will be saved to the file)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >changeteam</span></span></span>" &nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(changes team during a <span class=SpellE>teamplay</span> 
+        game, if a <span class=SpellE>matchstart</span> initiated, then a vote 
+        will automatically be called) </td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >emitme</span></span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(calls a vote to be <span class=SpellE>emited</span> 
+        into a match)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >ejectme</span></span></span>" 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        </td>
+      <td width="90%" valign="top">(removes yourself from play queue during a 
+        round based mode, or removes yourself from a match after a <span class=SpellE>matchstart</span>)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >vrcon</span></span></span>" </p>
+        </td>
+      <td width="90%" valign="top">&lt;commands&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(refer to <span class=SpellE><A href="vadmin.html">vadmin</A></span><A href="vadmin.html">.html</A> 
+        in the help documentation)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >vgroup</span></span></span>" </p>
+        </td>
+      <td width="90%" valign="top">&lt;group 
+      name&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(refer to <span
+ class=SpellE 
+     >vadmin</span> in the help documentation)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: blue" 
+     >vadministration</span></span></span>" </p>
+        </td>
+      <td width="90%" valign="top">&lt;group 
+      name&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(refer to <span
+ class=SpellE 
+     >vadmin</span> in the help documentation)</td>
+    </tr>
+    <tr>
+      <td valign="top">
+<p>"<span class=SpellE><span style="COLOR: blue">vrcon_password</span></span>" 
+        </p></td>
+      <td width="90%" valign="top">&lt;password&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(refer to <span
+ class=SpellE>vadmin</span> in the help documentation)</td>
+    </tr>
+  </table>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><strong><a name="cvars"></a>New client <span class=SpellE>cvars</span>:</strong></p>
+  <table width="725" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=GramE><span style="COLOR: green">hue</span></span>" </p>
+        </td>
+      <td width="89%" valign="top">0-255 
+      &nbsp;&nbsp;&nbsp;&nbsp;(<span
+ class=SpellE 
+     >hud</span> color)</td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=GramE><span style="COLOR: green">value</span></span>" 
+        </p>
+        </td>
+      <td width="89%" valign="top">0-1 
+      &nbsp;&nbsp;&nbsp;&nbsp;(<span
+ class=SpellE 
+     >hud</span> brightness)</td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=GramE><span style="COLOR: green">gauss</span></span>"</p>
+        </td>
+      <td width="89%" valign="top">0-8 
+      &nbsp;&nbsp;&nbsp;&nbsp;(gauss color)</td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=SpellE><span class=GramE><span
+ style="COLOR: green" 
+     >xhairs</span></span></span>"</p>
+        </td>
+      <td width="89%" valign="top">"name" &nbsp;&nbsp;&nbsp;&nbsp;(strings are determined 
+        by the folders names in the sprites/crosshair dir)</td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=SpellE><span style="COLOR: green" 
+   >cl_showclock</span></span>"</p>
+        </td>
+      <td width="89%" valign="top">0-1 
+      &nbsp;&nbsp;&nbsp;&nbsp;(turns on and off <span
+ class=SpellE 
+     ><span class=GramE>hud</span></span> clock at bottom)</td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=SpellE><span style="COLOR: green" 
+   >cl_showtimer</span></span>"</p>
+        </td>
+      <td width="89%" valign="top">0-1 
+      &nbsp;&nbsp;&nbsp;&nbsp;(turns on and off <span
+ class=SpellE 
+     ><span class=GramE>hud</span></span> timer at top)</td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=SpellE><span style="COLOR: green">cl_showlock</span></span>" 
+        </p>
+        </td>
+      <td width="89%" valign="top">0-1 
+      &nbsp;&nbsp;&nbsp;&nbsp;(turns on and off <span class=SpellE>hud</span> 
+        <span class=GramE>lock )</span></td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=SpellE><span style="COLOR: green">cl_scrollspeed</span></span>" 
+        </p>
+        </td>
+      <td width="89%" valign="top">* 
+      &nbsp;&nbsp;&nbsp;&nbsp;(changes the map scroll speed, default 
+        800)</td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top"> 
+        <p>"<span class=SpellE><span style="COLOR: green" 
+     >cl_dynamic_xhrs</span></span>"</p>
+        </td>
+      <td width="89%" valign="top">0-1 
+      &nbsp;&nbsp;&nbsp;&nbsp;(turns on and off crosshair colors)</td>
+    </tr>
+    <tr>
+      <td width="11%" valign="top">"<span class=SpellE><span style="COLOR: green" 
+     >cl_radar</span></span>"</td>
+      <td width="89%" valign="top"> (turns on and off client side radar)</td>
+    </tr>
+  </table>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p><strong><a name="buttons"></a>New client buttons:</strong></p>
+  <table width="75%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+    <tr>
+      <td>
+<p><span class=GramE>bind</span> "<span class=SpellE>ANYKEY</span>" 
+          "+<span class=SpellE>longjump</span>"</p>
+        </td>
+      <td>(much more accurate then a script)</td>
+    </tr>
+    <tr>
+      <td><p><span class=GramE>bind</span> "<span class=SpellE>ANYKEY</span>" 
+          "<span class=SpellE>playtrack</span>"</p>
+        </td>
+      <td>(<span class=SpellE>winamp</span> play)</td>
+    </tr>
+    <tr>
+      <td><p><span class=GramE>bind</span> "<span class=SpellE>ANYKEY</span>" 
+          "<span class=SpellE>pausetrack</span>"</p>
+        </td>
+      <td>(<span class=SpellE>winamp</span> pause)</td>
+    </tr>
+    <tr>
+      <td><p><span class=GramE>bind</span> "<span class=SpellE>ANYKEY</span>" 
+          "<span class=SpellE>previoustrack</span>"</p>
+        </td>
+      <td>(<span class=SpellE>winamp</span> previous world)</td>
+    </tr>
+    <tr>
+      <td><p><span class=GramE>bind</span> "<span class=SpellE>ANYKEY</span>" 
+          "<span class=SpellE>nexttrack</span>"</p>
+        </td>
+      <td>(<span class=SpellE>winamp</span> next track)</td>
+    </tr>
+    <tr>
+      <td><p><span class=GramE>bind</span> "<span class=SpellE>ANYKEY</span>" 
+          "<span class=SpellE>stoptrack</span>"</p>
+        </td>
+      <td>(<span class=SpellE>winamp</span> stop)</td>
+    </tr>
+    <tr>
+      <td><p><span class=GramE>bind</span> "<span class=SpellE>ANYKEY</span>" 
+          "+<span class=SpellE>volumedown</span>"</p>
+        </td>
+      <td>(<span class=SpellE>winamp</span> volume up)</td>
+    </tr>
+    <tr>
+      <td><p><span class=GramE>bind</span> "<span class=SpellE>ANYKEY</span>" 
+          "+<span class=SpellE>volumeup</span>"</p></td>
+      <td>(<span class=SpellE>winamp</span> volume up)</td>
+    </tr>
+  </table>
+  <p><A href="#top">back to questions</A></p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+</body>
+</html>

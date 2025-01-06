@@ -1,0 +1,8 @@
+hleduel_orange.bsp
+hle_moss
+hleduel_courtyard
+hle_meanie
+hleduel_pure
+hle_frenzy
+
+

@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.15
+	ORIGIN	-64 -165.16 -439.50
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/hlectf_bootcamp.bmp"
+	HEIGHT	-1637
+}

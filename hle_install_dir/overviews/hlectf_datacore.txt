@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.93
+	ORIGIN	1120	736	178
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/hlectf_datacore.bmp"
+	HEIGHT	-121
+}

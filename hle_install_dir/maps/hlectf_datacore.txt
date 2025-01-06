@@ -1,0 +1,13 @@
+Name:		Data Core Capture The Flag 
+Game:		Half-Life Elite Capture The Flag
+Author:	SantagausS
+
+A capture the flag version of the valve released map datacore. 
+This map pits Red and Blue teams against each other. The flag 
+is in the upper room with the desk. The teams start spread out 
+across the 3 large rooms on each side of the map. There are 5 
+passages to access the flag room the two going to the long jump 
+room are the fastest and usually safest way the offense can get 
+to and from the flag. Keep your team organized and help the 
+defense with supplies so they can concentrate on locking down 
+the flag room.  

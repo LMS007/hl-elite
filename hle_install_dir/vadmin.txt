@@ -1,0 +1,58 @@
+GROUP ( NAME "admin" )
+{
+	MEMBERS
+	{
+		"1:418088"
+	}
+
+	PERMISSIONS ( ALL ) { }
+
+}
+
+GROUP ( NAME "mod" )
+{
+	PERMISSIONS ( ALL ) { }
+
+	RESTRICTIONS
+	{
+		"add"
+		"map"
+		"rcon"
+		"rcon_password"
+		"remove"
+		"vadministration admin"
+		"hostname"
+	}
+
+}
+
+GROUP ( NAME "users" )
+{
+	PERMISSIONS ( ALL ) { }
+
+	RESTRICTIONS
+	{
+		"add"
+		"ban"
+		"create"
+		"eject"
+		"emit"
+		"kick"
+		"map"
+		"rcon"
+		"rcon_password"
+		"remove"
+		"sv_"
+		"hostname"
+		"vadministration admin"
+		"vadministration mod"
+	}
+
+}
+
+GROUP ( NAME "everyone", PASSWORD "efilflah" )
+{
+	RESTRICTIONS ( ALL ) { }
+
+}
+

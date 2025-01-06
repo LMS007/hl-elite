@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.60
+	ORIGIN	264 -88 -208
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/hlectf_stalkyard.bmp"
+	HEIGHT	-545
+}

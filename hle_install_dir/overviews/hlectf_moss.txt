@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.03
+	ORIGIN	-64	608	1532
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/hlectf_moss.bmp"
+	HEIGHT	-9
+}

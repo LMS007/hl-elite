@@ -1,0 +1,15 @@
+14
+weapon			320 320hud1	80	0	80	20
+weapon_s		320 320hud1	80	20	80	20
+ammo			320 320hud2	72	16	18	18
+crosshair		320 crosshairs	192	128	64	32
+autoaim			320 crosshairs	192	128	64	32
+zoom			320 crosshairs	128	160	128	32
+zoom_autoaim		320 crosshairs	128	160	128	32
+weapon			640 640hud2	0	0	170	45
+weapon_s		640 640hud5	0	0	170	45
+ammo			640 640hud7	96	72	24	24
+crosshair		640 crosshairs	192	128	64	32
+autoaim			640 crosshairs	192	128	64	32
+zoom			640 crosshairs	128	160	128	32
+zoom_autoaim		640 crosshairs	128	160	128	32

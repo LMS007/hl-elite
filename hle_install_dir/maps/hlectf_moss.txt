@@ -1,0 +1,18 @@
+Name:		Moss Capture The Flag 
+Game:		Half-Life Elite Capture The Flag
+Author:	SantagausS
+
+Moss CTF is a huge map that will cater to a wide range of 
+player styles and tactics. Green and Yellow teams each start 
+in the arena which is centered on the team’s territory. In 
+each arena is a long jump which should be saved for a player 
+wishing to track down a lost flag. A quick move to the arena 
+long jump and out to the tau courtyard can easily catch you 
+up to a flag thief. The flag is located in the court yard by 
+the sniper tower. In a small building on the second level 
+near the flag is a switch to control lasers that block the 
+other team from moving through the water pit.  All flag 
+carriers must go through the center court yard to get the 
+capture a flag it’s a good point to cut people off. Offensive 
+players will find that the Inside area near the sniper tower 
+is a fairly safe place to stage flag runs.  

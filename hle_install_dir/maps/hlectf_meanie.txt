@@ -1,0 +1,17 @@
+Name:		Meanie Flag Bases
+Game:		Half-Life Elite Capture The Flag
+Author:	SantagausS
+
+It is a tall vertically oriented map vertical movement is 
+important. Green and Blue teams each start on their side of 
+the map stocked with a long jump, handgun, and crowbar.  The 
+teleports at the bottom of the map will take you to the flag 
+room and all players will be able to hear when the teleport 
+has been used. The teleport can be easily accessed from the 
+center of the map; however do not try to take a flag through 
+the teleport. It will probably be quite easy to steal the flag, 
+capturing the flag will be much harder. You must move the flag 
+back through the room the opposition starts in and each main 
+area of the map. If you fall down or are tactically forced to 
+go down you will have to use the bounce pads to get the flag 
+up into your flag room. 

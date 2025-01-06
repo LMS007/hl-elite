@@ -1,0 +1,109 @@
+"blank"				"Game Menus"
+
+"toggleconsole"			"Console"
+"+showscores"			"Score Board"
+"menu"				"Command Menu"
+"yes"					"Accept Vote"
+"no"					"Decline Vote"
+
+"blank"				"Communication"
+
+"messagemode"			"Message"
+"messagemode2"			"Team Message"
+"say_team %L with (%H/%A)"	"Team Status Message"
+"taunt"				"Taunt"
+
+"blank"				"Movement"
+
+"+forward"				"Forward"
+"+back"				"Back"
+"+moveleft"				"Strafe Left"
+"+moveright"			"Strafe Right"
+"+left"				"Turn Left"
+"+right"				"Turn Right"
+"+jump"				"Jump"
+"+longjump"				"Long Jump"	
+"+duck"				"Duck"
+"+moveup"				"Swim Up"
+"+movedown"				"Swim Down"
+"+speed" 			      "Walk"
+"+lookup"				"Look Up"
+"+lookdown"				"Look Down"
+"centerview"			"Look Straight Ahead"
+"+strafe"				"Strafe Modifier"
+"+mlook"				"Mouse Look Modifier"
+"+klook"				"Keyboard Look Modifier"
+
+"blank"				"Game Actions"
+
+"+attack"				"Primary Attack"
+"+attack2"				"Secondary Attack"
+"+reload"				"Reload"
+"+use"				"Use"
+"impulse 100"			"Flashlight"
+"impulse 201"			"Spray Logo"
+"snapshot"				"Take Screen Shot"
+"quit"				"Quit Game"
+
+"blank"				"Drop Items"
+
+"drop"				"Drop Menu"
+"drop health"			"Drop health"
+"drop battery"			"Drop battery"
+"drop flag"				"Drop flag"
+"drop longjump"			"Drop longjump"
+"drop weapon"			"Drop weapon"
+"drop ammo1"			"Drop primary ammo"
+"drop ammo2"			"Drop secondary ammo"
+
+"blank"				"Direct Weapon Binds"
+
+"weapon_crowbar"			"Crowbar"
+"weapon_9mmhandgun"		"Glock"
+"weapon_357"			"Magnum"
+"weapon_shotgun"			"Shotgun"
+"weapon_9mmAR"			"MP5"
+"weapon_crossbow"			"Crossbow"
+"weapon_gauss"			"Gauss Cannon"
+"weapon_rpg"			"RPG"
+"weapon_egon"			"Egon"
+"weapon_hornetgun"			"Hornet Gun"
+"weapon_handgrenade"		"Hand Grenade"
+"weapon_snark"			"Snark"
+"weapon_tripmine"			"Tripmine"
+"weapon_satchel"			"Satchel"
+"weapon_m249"			"M249"
+"weapon_sniperrifle"		"Sniper Rifle"
+"weapon_shockrifle"		"Shock Rifle"
+"weapon_sporelauncher"		"Spore Launcher"
+
+"blank"				"Weapon Selection"
+
+"invprev"				"Previous Weapon"
+"invnext"				"Next Weapon"
+"lastinv"				"Swap Weapons"
+"slot1"				"Weapon Category One"
+"slot2"				"Weapon Category Two"
+"slot3" 				"Weapon Category Three"
+"slot4"				"Weapon Category Four"
+"slot5"				"Weapon Category Five"
+"slot6"				"Weapon Category Six"
+
+"blank"				"winamp controls"
+
+"playtrack"			"Play"
+"stoptrack"			"Stop"
+"pausetrack			"Pause"
+"nexttrack"			"Next Track"
+"previoustrack"			"Previous Track"
+"+volumeup"			"Increase Volume"
+"+volumedown"			"Decrease Volume"
+
+"blank"				"Other Commands"
+"nosound"				"Stop All Sounds"
+
+
+
+
+
+

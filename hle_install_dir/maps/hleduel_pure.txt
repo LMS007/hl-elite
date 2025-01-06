@@ -1,0 +1,7 @@
+Name:		Pure Duel 
+Game:		Half-Life Elite Duel
+Author:	SantagausS
+
+Pure duels a wide open map for the times you don’t want 
+anything in your way. Very good for practicing aim, bunny 
+hopping, or any other skills. 

@@ -1,0 +1,9 @@
+Name:		Round About
+Game:		Half-Life Elite CTF
+Author:		007
+
+This map is designed for CTF, but it works with TLMS, TACTION, DUEL, LMS, and ACTION modes. 
+Two teams permitted, Green vs Purple. The main button in each base activates lasers which block 
+all opposing players from moving through them. If they have the flag the flag will be turned when
+killed by the lasers.
+

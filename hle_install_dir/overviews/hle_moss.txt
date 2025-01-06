@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.66
+	ORIGIN	32	-320	1664
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/hle_moss.bmp"
+	HEIGHT	255
+}

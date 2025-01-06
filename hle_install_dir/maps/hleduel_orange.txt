@@ -1,0 +1,8 @@
+Name:		Orange Duel 
+Game:		Half-Life Elite Duel
+Author:	SantagausS
+
+A small map for duels. This is a bit of a complex map with 
+many different moves that can be achieved and obstacles to 
+move around while dueling. 
+

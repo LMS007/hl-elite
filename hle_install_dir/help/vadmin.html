@@ -1,0 +1,447 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=Edit-Time-Data href="vadmin_files/editdata.mso">
+<title>Half-Life Elite - Virtual Administration 2</title>
+<style><!--
+.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" link=blue vlink=purple class="Normal" lang=EN-US>
+<div class=Section1> 
+  <p>Half-Life Elite - Virtual Administration 2.0</p>
+  <p>By: [LMS]007</p>
+  <p><a href="mailto:007@hl-elite.com">kyle@hl-elite.com</a></p>
+  <div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0in 0in 1.0pt 0in'> 
+    <p style='border:none;padding:0in;'><b>Concept </b></p>
+  </div>
+  <p>To create a layer of abstraction between the administrators and the server 
+    owner. The principle behind virtual admin is to give sub administration rights 
+    to players by assigning them to a virtual administration group which can restrict 
+    or advance any number of server commands or variables without yielding the 
+    potentially dangerous rcon_password.</p>
+  <div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0in 0in 0in 0in'> 
+    <p style='border:none;padding:0in;'><b>Functionality</b></p>
+  </div>
+  <p>Virtual administration works much like windows NT in the sense that you can 
+    create groups and assign players to a group. Each group has its own permissions 
+    and or restrictions which are in a sense “rights” given to each member in 
+    that particular group.  </p>
+  <p>Virtual administration uses a text file to load and save its previous groups 
+    and group settings. The settings for this file can be edited in the game or 
+    outside the game. The text file is more like a script file. Server admins 
+    can create groups and add permissions or restrictions or passwords to each 
+    group. The method in which client members can use vadmin is by using the string 
+    “vrcon” before the command they which to send to the server via the console. 
+    For example “vrcon mp_timelimit 30”</p>
+  <div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0in 0in 1.0pt 0in'> 
+    <p style='border:none;padding:0in;'><b>The file (vadmin.txt)</b></p>
+  </div>
+  <p>Here is an example of vadmin.txt file located inside your hle directory</p>
+  <p><span style='font-size:10.0pt;color:black'>GROUP ( NAME &quot;admin&quot; 
+    )<br>
+    </span><span style='font-size:10.0pt;color:black'>{<br>
+    </span><span style='font-size:10.0pt;color:black'>                MEMBERS<br>
+    </span><span style='font-size:10.0pt;color:black'>                {<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:418088&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                }<br>
+    </span><span style='font-size:10.0pt;color:black'>                PERMISSIONS 
+    ( ALL ) { }<br>
+    </span><span style='font-size:10.0pt;color:black'>}<br>
+    </span><span style='font-size:10.0pt;color:black'>GROUP ( NAME &quot;mod&quot; 
+    )<br>
+    </span><span style='font-size:10.0pt;color:black'>{<br>
+    </span><span style='font-size:10.0pt;color:black'>                MEMBERS<br>
+    </span><span style='font-size:10.0pt;color:black'>                {<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;0:1801522&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;0:3907&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;0:56377&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;0:74005&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;0:86936&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:1419695&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:420928&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:45960&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:515501&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:68965&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:694157&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:716784&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:86844&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:87766&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:90073&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:90835&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                }<br>
+    </span><span style='font-size:10.0pt;color:black'>                PERMISSIONS 
+    ( ALL ) { }<br>
+    </span><span style='font-size:10.0pt;color:black'>                RESTRICTIONS<br>
+    </span><span style='font-size:10.0pt;color:black'>                {<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;add&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;rcon&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;rcon_password&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;remove&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;vadministration admin&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                }<br>
+    </span><span style='font-size:10.0pt;color:black'>}<br>
+    </span><span style='font-size:10.0pt;color:black'>GROUP ( NAME &quot;users&quot; 
+    )<br>
+    </span><span style='font-size:10.0pt;color:black'>{<br>
+    </span><span style='font-size:10.0pt;color:black'>                MEMBERS<br>
+    </span><span style='font-size:10.0pt;color:black'>                {<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;1:520732&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                }<br>
+    </span><span style='font-size:10.0pt;color:black'>                PERMISSIONS 
+    ( ALL ) { }<br>
+    </span><span style='font-size:10.0pt;color:black'>                RESTRICTIONS<br>
+    </span><span style='font-size:10.0pt;color:black'>                {<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;add&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;ban&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;create&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;eject&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;emit&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;kick&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;rcon&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;rcon_password&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;remove&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;sv_&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;vadministration admin&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                                
+    &quot;vadministration mod&quot;<br>
+    </span><span style='font-size:10.0pt;color:black'>                }<br>
+    </span><span style='font-size:10.0pt;color:black'>}<br>
+    </span><span style='font-size:10.0pt;color:black'>GROUP ( NAME &quot;everyone&quot;, 
+    PASSWORD &quot;efilflah&quot; )<br>
+    </span><span style='font-size:10.0pt;color:black'>{<br>
+    </span><span style='font-size:10.0pt;color:black'>                RESTRICTIONS 
+    ( ALL ) { }<br>
+    </span><span style='color:black'>}</span></p>
+  <p>From this file, you can see each group is defined by a set of parameters 
+    surrounded by parenthesis ( ) and a set of contents which is surrounded by 
+    braces { }. This is much the way a C++ or C or Java function would look like.  
+  </p>
+  <p>The file is completely editable. You can add anything you like so long as 
+    it’s valid syntax or remove any part you like without invalidating the syntax. 
+     Keywords are in caps.  There are two types of keywords, Functional keywords 
+    and Parameterized keywords. Functional keywords may or may not have parameters. 
+    However each functional keyword must be followed by a set of braces like this 
+    { }. They may be empty, or have contents.  For example <b>MEMBERS { }</b></p>
+  <p>Parameter keywords are contained between a pair of parenthesis like this 
+    (  ). Each Parameter keyword should be followed by string a text relative 
+    to the keyword. The string a text much be wrapped by quotes “ “. For example 
+    <b>NAME “group”.</b>  Note that this is also valid by not necessary  <b>MEMBERS 
+    (  ) { }</b>.  Parameters are optional for all Functional keywords expect 
+    <b>GROUP</b>. Therefore this would be invalid <b>GROUP { }</b>. The <b>GROUP</b> 
+    keyword must at least have the <b>NAME</b> parameter like such: <b>GROUP (NAME 
+    </b>“xyz”<b>) { }</b>.  Certain keywords only work inside other keywords. 
+    <b>MEMBERS</b> and <b>RESTRICTIONS</b> and <b>PERMISSIONS</b> will only have 
+    a purpose inside of a <b>GROUP</b>. For example</p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS <br>
+    </b><b>            {}<br>
+    </b><b>            RESTRICTIONS<br>
+    </b><b>            {}<br>
+    </b><b>}</b></p>
+  <p>The keyword <b>ALL</b>. Is sort of a short cut. If you wanted all the possible 
+    contents of a Functional keyword then you use the keyword <b>ALL</b> inside 
+    the parameters, for example:  </p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS ( ALL )<br>
+    </b><b>            {}<br>
+    </b><b>            RESTRICTIONS<br>
+    </b><b>            {}<br>
+    </b><b>}</b></p>
+  <p>Would grant access to anything a member of that group would type. There is 
+    a logical order as to how the permissions and restrictions are dealt with.</p>
+  <p>Here is how the simple algorithm works in this exact order</p>
+  <p><span style='font-family:"Courier New";color:blue'>If</span><span
+style='font-family:"Courier New"'>   ( the command is a permission )<br>
+    </span><span style='font-family:"Courier New"'>     <span style='color:green'>Give 
+    authorization<br>
+    </span></span><span style='font-family:"Courier New";color:blue'>Else If</span><span
+style='font-family:"Courier New"'> ( the command is a restriction )<br>
+    </span><span style='font-family:"Courier New"'>     <span style='color:red'>Fail 
+    authorization<br>
+    </span></span><span style='font-family:"Courier New";color:blue'>Else If </span><span
+style='font-family:"Courier New"'>( the all commands are NOT blocked )<br>
+    </span><span style='font-family:"Courier New"'>     <span style='color:green'>Give 
+    authorization<br>
+    </span></span><span style='font-family:"Courier New";color:blue'>Else<br>
+    </span><span style='font-family:"Courier New"'>     <span style='color:red'>Fail 
+    authorization</span></span></p>
+  <p><span style='color:black'>So what does that really mean? I think it would 
+    be best to just look at a few examples.</span></p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS ( ALL )<br>
+    </b><b>            {}<br>
+    </b><b>            RESTRICTIONS<br>
+    </b><b>            {<br>
+    </b><b>                        </b>“rcon_password”<br>
+    <b>            }<br>
+    </b><b>}</b></p>
+  <p>Remember to use commands a member needs to use the prefix “vrcon” before 
+    each command.  If a member of the group “test” typed <i>vrcon rcon_password 
+    123</i> in the console they would be denied the writes for this commend to 
+    work. They would get an error message in the console. However any other command 
+    they type will work because <b>ALL </b>permissions are accepted. However if 
+    the group looked like this</p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS (  )<br>
+    </b><b>            {}<br>
+    </b><b>            RESTRICTIONS<br>
+    </b><b>            {}<br>
+    </b><b>}</b></p>
+  <p>No commands would work. This group would not be very beneficial to anyone. 
+    Essentially all permissions are banned unless otherwise explicitly stated 
+    or the <b>ALL</b> parameter is assigned to the permission keyword parameter 
+    list. Let’s run through some more examples</p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS (  )<br>
+    </b><b>            {<br>
+    </b><b>                        </b>“changelevel”<br>
+    <b>}<br>
+    </b><b>            RESTRICTIONS<br>
+    </b><b>            {}<br>
+    </b><b>}</b></p>
+  <p>The only command a member of this group would be allowed to use is <i>changelevel 
+    </i>every other command would be rejected. You may notice that the key word 
+    ALL would not really matter if it was applies in the <b>RESTRICTIONS</b> parameter 
+    list. However we will include it for simplification. Therefore</p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS (  )<br>
+    </b><b>            {<br>
+    </b><b>                        </b>“changelevel”<br>
+    <b>            }<br>
+    </b><b>            RESTRICTIONS ( ALL )<br>
+    </b><b>            {}<br>
+    </b><b>}</b></p>
+  <p>Is essentially the exact same group as before.  Likewise if you omit the 
+    entire keyword <b>RESTRICTIONS </b>…</p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS (  )<br>
+    </b><b>            {<br>
+    </b><b>                        </b>“changelevel”<br>
+    <b>            }<br>
+    </b><b>}</b></p>
+  <p>You would still have the exact same group. This just emphasizes that fact 
+    that all commands are restriction unless otherwise stated. So why do we have 
+    a <b>RESTRICTIONS </b>key word? Well this is to add some flexibility to the 
+    group. You can create a group where all keywords are accepted unless otherwise 
+    restricted like this:</p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS (ALL)<br>
+    </b><b>            {</b><b>}<br>
+    </b><b>            RESTRICTIONS<br>
+    </b><b>            {<br>
+    </b><b>                        </b>“rcon_password”          <br>
+    <b>            }<br>
+    </b><b>}</b></p>
+  <p>We used this example once before. Everyone is accepted expect <i>rcon_password.  
+    </i>You can also use partial strings to restriction or admit commands. Let’s 
+    look at some examples of this</p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS (ALL )<br>
+    </b><b>            {</b><b>}<br>
+    </b><b>            RESTRICTIONS <br>
+    </b><b>            {<br>
+    </b><b>                        </b>“sv_”<br>
+                            “mp_”  <br>
+                            “r”         <br>
+    <b>            }<br>
+    </b><b>}</b></p>
+  <p>So what does that do? Basically any member of that group would be allowed 
+    to type any command exact commands that started with “mp_” “sv_” or “r”. Which 
+    would rule out all multiplayer cvars, server cvars, and words like rcon or 
+    rcon_password and whatever other commands started with an “r”.  If “r” was 
+    too generic, one might try to lengthen the string to target more specific 
+    commands. For example “rcon”</p>
+  <p>Likewise you can increase the length of the string and even add spacing to 
+    target specific commands for example</p>
+  <p><b>GROUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS (ALL )<br>
+    </b><b>            {</b><b>}<br>
+    </b><b>            RESTRICTIONS <br>
+    </b><b>            {<br>
+    </b><b>                        </b>“changelevel boot_camp”<br>
+    <b>            }<br>
+    </b><b>}</b></p>
+  <p>No member could change the level to boot_camp. Normally this would be impossible 
+    to prevent because boot_camp can not be removed from the server. However, 
+    if someone really did not want the map being played, they could prevent it. 
+    Any admin should also be away of <span style='color:blue'>vote.txt</span> 
+    which prevents votes from being called by clients.  “changelevel boot_camp” 
+    is a poor example. A better example is “vadministration groupname” which we 
+    will get to later.</p>
+  <p>Now lets take a look at the keyword <b>MEMBERS</b></p>
+  <p><b>GOUP ( NAME</b> “test” <b>)<br>
+    </b><b>{<br>
+    </b>            <b>PERMISSIONS (ALL)<br>
+    </b><b>            {</b><b>}<br>
+    </b><b>            RESTRICTIONS<br>
+    </b><b>            {<br>
+    </b><b>                        </b>“rcon_password”<br>
+    <b>            </b><b>}<br>
+    </b><b>            MEMBERS<br>
+    </b><b>            {<br>
+    </b><b>            </b><b>            </b>“0:123456”<br>
+    <b>            </b><b>            </b>“1:789123”<br>
+    <b>            }<br>
+    </b><b>}</b></p>
+  <p>Again, each member in the group is a text string surround by quotes. Members 
+    are defined by their appropriate STEAM ID’s. To find your steam id, type either 
+    <i>status</i> or <i>users </i>in the console when you are playing online on 
+    any server other then your own.</p>
+  <p>Any player who joins a server will be automatically added to a group if they 
+    are a member.  No other players will be allowed to use that group’s functionality 
+    unless they enter the group’s <b>PASSWORD</b> if there even is one.  </p>
+  <p>Using the parameter keyword  <b>ALL </b>with the functional keyword <b>MEMBERS</b> 
+    would put any player in the server in that group.  This would not be wise 
+    is the groups permissions were very powerful, but it might be useful for a 
+    group with some simple server commands that you wish all players who care 
+    to, to be able to manipulate.  The syntax would look like this <b>MEMBERS 
+    (ALL ) { }</b></p>
+  <p>Now lets take a look at the last keyword <b>PASSWORD</b>.   This is a parameter 
+    keyword which can only be used in a <b>GROUP’s</b>  parameter list like this:</p>
+  <p><b>GROUP ( NAME “</b>test<b>” , PASSWORD “</b>123<b>” )</b></p>
+  <p>Notice the comma which separates the password and name. The comma is required.</p>
+  <p>The password is used as an alternative for clients to join groups. A client 
+    may be using another PC and may wish to join the group he or she is normally 
+    in but can’t because the STEAM id does not match. Using the client command 
+    <i>vrcon_password 123 </i>would put that client into the group (so long as 
+    the password matches) until the server restarts or map changes. It’s more 
+    of a temporary solution. Group passwords are not required.</p>
+  <p>One last note about the vdmin.txt file. Spacing, tabs, or  returns do not 
+    matter so long as they are not inside quotes<b>. </b></p>
+  <p><b>GROUP(NAME</b>”test”<b>,PASSWORD</b>”123”<b>){}</b> </p>
+  <p>would be just as valid as…</p>
+  <p><b>GROUP<br>
+    </b><b>(           NAME            </b>“test”<b>               ,<br>
+    </b><b>PASSWORD              </b>“123”<b>   <br>
+    </b><b>)<br>
+    </b><b>{<br>
+    </b><b>}</b></p>
+  <div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0in 0in 1.0pt 0in'> 
+    <p style='border:none;padding:0in;'><b>In game server commands and manipulation</b></p>
+  </div>
+  <p>Everything you can do in the file you can do in the game. Some things are 
+    convent for editing in the game like adding members to a group because you 
+    have their STEAM ID on hand. Let’s take a look at some of the basic server 
+    commands</p>
+  <p><b><i>add </i></b></p>
+  <p>This command is useless on its own. It’s normally followed by several other 
+    commands. Without talking to much about this, lets just look at the possibilities</p>
+  <p><b><i>add permission &lt;group name&gt; &lt;permission&gt;        </i></b></p>
+  <p>Where <b><i>&lt;group name&gt;</i></b><i> </i>and <b><i>&lt;permission&gt;</i></b><i> 
+    </i>would be the group and permission you wish to add to that group. For example 
+    <i>add permissions test changelevel. </i> Note that the chevron arrows are 
+    only used to indicate that those words should be replaced. You should not 
+    type the arrows when using the command.</p>
+  <p><b><i>add restriction &lt;group name&gt; &lt;permission&gt;</i></b></p>
+  <p>Works the same way as add permissions</p>
+  <p><b><i>add password &lt;group name&gt; &lt;password&gt;</i></b></p>
+  <p>Sets the password to the specified group. Example: <i>add password test 123</i></p>
+  <p><b><i>add member  &lt;group name&gt; &lt;player name or steam id&gt;</i></b></p>
+  <p>This command works the same as the rest; however you can either submit the 
+    players screen name or his or her steam id if the name is too hectic to type. 
+    To find a player steam id, type  <i>users</i> in the console.</p>
+  <p>Example: <i>add member test 0:123456</i>  or…  <i>add member test Player    
+    </i></p>
+  <p><b><i>add blockall  &lt;group name&gt;</i></b></p>
+  <p>This command is a special command to remove the <b>ALL</b> parameter from 
+    the permissions list.  Note that it removes the ALL command even though you 
+    are adding it. Essentially you are adding a restriction</p>
+  <p>Likewise with <i>add</i>, there is <i>remove</i>. The <i>remove</i> commands 
+    work nearly the same as <i>add</i></p>
+  <p><b><i>remove permission &lt;group name&gt; &lt;permission&gt;  </i></b></p>
+  <p><b><i>remove restriction &lt;group name&gt; &lt;permission&gt;</i></b></p>
+  <p><b><i>remove password &lt;group name&gt; &lt;password&gt;</i></b></p>
+  <p><b><i>add member  &lt;group name&gt; &lt; steam id&gt;</i></b></p>
+  <p>Note that only the steam id will work for move, the players name will not.</p>
+  <p><b><i>remove blockall  &lt;group name&gt;</i></b></p>
+  <div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0in 0in 3.0pt 0in'> 
+    <p style='border:none;padding:0in;'><b>In game client commands</b></p>
+  </div>
+  <p><b><i>vrcon</i></b></p>
+  <p>this works just like rcon. It is your gateway into your vadmin group. If 
+    you are not a vadmin you will not be allowed to use this command. <br>
+    <br>
+  </p>
+  <p><b><i>vrcon_passoword</i></b></p>
+  <p>This is a client command which sets a client’s password, and assigns him 
+    or her to the group matching that password</p>
+  <p><b><i><span style='color:black'>vgroup &lt;group name&gt;</span></i></b></p>
+  <p>This shows your current groups permissions and restrictions.  </p>
+  <p>Example: <i>vgroup users</i></p>
+  <p> <img border=0 width=334 height=377
+src="vadmin_files/image002.gif" v:shapes="_x0000_i1025"> </p>
+  <p><b><i>vadministration <span style='color:black'>&lt;group name&gt;</span></i></b></p>
+  <p>This command shows the groups admin won ID and there name (if they are in 
+    the server) and the groups password. </p>
+  <p>Example: <i>vadministration admin</i></p>
+  <p><b> <img border=0 width=346 height=206
+src="vadmin_files/image004.gif" v:shapes="_x0000_i1026"> </b></p>
+  <p>vgroup and vadministration are the only two client commands that work like 
+    server commands.  Therefore they can be blocked just like any other command. 
+    It is wise to block vadministration from lower group levels as they could 
+    see the password to higher group levels for example, if “admin” was your highest 
+    group and “mod” was just below that, then a restriction for “mod” should be 
+    “vadministration admin”. Likewise if “users” was a group below “mod” then 
+    two restrictions for “users” should be “vadministration admin” and “vadministration 
+    mod”. Keep in mind that there is no hierarchy with groups. It is merely how 
+    you implement them based on restrictions and permissions. It is up to the 
+    server administrator to developer a group scheme that works in some sort of 
+    hierarchical order. The default vadmin.txt file is set up in this fashion.</p>
+  <p>The default vadmin.txt config is a good foundation for you as an admin to 
+    begin with. You can modify that file to you needs and use examples from that 
+    file as references. If you have any further questions please post them on 
+    the hle forums at</p>
+  <p><a
+href="http://www.rage-board.com/rageboard/index.php?showforum=3">http://www.rage-board.com/rageboard/index.php?showforum=3</a></p>
+  <p>or email me at</p>
+  <p><a href="mailto:kyle@hl-elite.com">kyle@hl-elite.com</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Name:		Stalk Yard Capture The Flag 
+Game:		Half-Life Elite Capture The Flag
+Author:	SantagausS
+
+A capture the flag version of the valve released map stalkyard. 
+This map pits Red and Blue teams against each other. The main 
+outside yard is the center of each teams play, farther back 
+through two halls are the flags in another outside area.  
+Collect your supplies fast or the game will outrun you.  
+Jumping on boxes and technical movement are an extreme 
+advantage in this map.  

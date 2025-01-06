@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.01
+	ORIGIN	896	-832	144
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/hle_meanie.bmp"
+	HEIGHT	-993
+}

@@ -1,0 +1,27 @@
+// Do not exceed numbers greater then 2 digits or letters including the (-) negative sign.  Thus -10 will not work, but -5 will.
+// The weight determines if a new weapon will switch with the one in your hand when you pick it up. 
+// It simply compares the weight of your current weapon with the new weapon you picked up.
+// Any weapon(s) missing here will be replaced by the valve default weight.
+
+crowbar      0
+glock        10
+357          15
+
+mp5          15
+shotgun      15
+crossbow     10
+
+rpg          20
+gauss        20
+egon         20
+beegun       10
+
+satchel     -5
+handgranade -5
+snark       -5
+tripmine    -5
+
+sniper	    20
+m249        15
+shock       15
+spore	    20

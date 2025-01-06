@@ -1,0 +1,20 @@
+// Liblist.gam For Half-Life Elite Mod
+// Load order is determined by file order.
+
+game "Half-Life Elite"
+url_info "www.hl-elite.com"
+url_dl ""
+version "1.0.6"
+size "25000000"
+svonly "0"
+cldll "1"
+hlversion "1110"
+type "multiplayer_only"
+mpentity "info_player_deathmatch"
+nomodels "1"
+gamedll "dlls\hle.dll"
+gamedll_linux "doest_not_exist_yet"
+trainmap ""
+
+
+

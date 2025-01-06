@@ -1,0 +1,13 @@
+Name:		Blue Meanie Base
+Game:		Half-Life Elite Death Match
+Author:	SantagausS
+
+Op4_meanie was one of the most popular and original maps for 
+Opposing Forces. With this tribute to the map we bring it to 
+Half-Life Elite. It is a tall vertically oriented map vertical 
+movement is important. The teleport at the bottom of the map 
+will take you to the upper blue room and all players will be 
+able to hear when the teleport has been used.  The majority 
+of spawns are in the green room while more of the supplies 
+are on the other side of the map. Each player starts with a 
+long jump in addition to the usual handgun and crowbar. 

@@ -1,0 +1,1 @@
+//This is a dummy file, mapcycle.txt will not work unless inside of a modes/*/ dir

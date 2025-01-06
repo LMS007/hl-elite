@@ -1,0 +1,495 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<link rel=Edit-Time-Data href="server_faq_files/editdata.mso">
+<title>HLE Client FAQ</title>
+<style><!--
+.SpellE
+	{}
+.GramE
+	{}
+.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" class="Normal" lang=EN-US>
+<div class=Section1> 
+  <p><strong><font size="5"><a name="top"></a>HLE Server FAQ</font></strong></p>
+  <p><strong><a href="#Q1">Q: How do I configure my server’s game settings?</a><br>
+    </strong><strong><a href="#Q2">Q: How do I configure the mapcycle?</a><br>
+    </strong><strong><a href="#Q3">Q: What kind of maps does hle have?</a><br>
+    </strong><strong><a href="#Q4">Q: How do I configure a map to work with ctp 
+    mode?</a><br>
+    </strong><strong><a href="#Q5">Q: What is vadmin.txt and how does it relate 
+    to rcon?</a><br>
+    </strong><strong><a href="#Q6">Q: How can I control voting?</a><br>
+    </strong><strong><a href="#Q7">Q: What is a match?</a><br>
+    </strong><strong><a href="#Q8">Q: How do I edit prevent entities from spawning?</a><br>
+    </strong><strong><a href="#Q9">Q: How can I control which game modes can be 
+    played?</a><br>
+    </strong><strong><a href="#Q10">Q: What are the new commands I need to know 
+    as an admin?</a></strong></p>
+  <p><strong><a href="#commands">New server commands</a><br>
+    </strong><strong><a href="#cvars">New server cvars</a></strong></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q1"></a><font color="#FF0000">Q: How do I configure 
+    my server’s game settings?</font></span></b></p>
+  <p><b>A: </b><span
+class=SpellE>HLE</span> works a bit different than any other mod.  There is an 
+    order of operations with the configuration files (*.<span class=SpellE>cfg</span>) 
+    <span class=GramE>The</span> first file to get executed is <span class=SpellE>game.cfg</span>. 
+    This file is only executed once when the server is created. Its primary responsibly 
+    is initiating the first game mode to be played. This file is relatively unimportant 
+    because once <span class=GramE>its</span> only called upon once. The next 
+    <span class=SpellE>config</span> file to be executed is the mode specific 
+    <span class=SpellE>config</span> file. This file is different for each mode. 
+    The mode <span class=SpellE>config</span> files can be found in the modes/ 
+    dir. Each game mode has its own sub directory and inside that <span
+class=GramE>lies</span> the <span class=SpellE>config</span> file for that mode 
+    among other files. The <span class=SpellE>config</span> <span class=GramE>file 
+    for whichever mode is running on your server will be called each time</span> 
+    the level ends or changes. Is it a bad idea to include global settings inside 
+    these <span class=SpellE>config</span> files such as <span class=SpellE>rcon_password</span> 
+    or <span class=GramE>password.</span> <span class=SpellE>Those</span> settings 
+    are best left for the finial <span class=SpellE>config</span> file.  The finial 
+    <span class=SpellE>config</span> file called will be one of two files depending 
+    on which type of server you are running. The two possible files are <span class=SpellE>server.cfg</span> 
+    for dedicated servers or <span class=SpellE>listenserver.cfg</span> for non 
+    dedicated servers. In either case this file will be executed immediately after 
+    the mode <span class=SpellE>config</span> file each time the level end or 
+    changes. Settings such as <span class=SpellE>max_players</span>, <span
+class=SpellE>rcon_password</span> or <span class=SpellE>sv_lan</span> are best 
+    left for this file while the more game specific commands like <span
+class=SpellE>mp_<span class=GramE>fraglimit</span></span><span class=GramE>,</span> 
+    <span class=SpellE>mp_weaponstay</span> should be left for the mode specific 
+    <span
+class=SpellE>config</span> files.  Note that <span class=SpellE>mp_gamemode</span> 
+    should not be place is any <span
+class=SpellE>config</span> file other then <span class=SpellE>game.cfg</span></p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q2"></a><font color="#FF0000">Q: How do I configure 
+    the <span class=SpellE>mapcycle</span>?</font></span></b></p>
+  <p><b>A: </b>The old <span
+class=SpellE>mapcycle.tvt</span> file is no longer used. Because <span
+class=SpellE>HLE</span> has many game modes and some of them require specialized 
+    maps, it was necessary to have discrete mapcyle.txt files for each <span
+class=SpellE>gamemode</span>.  The mapcycle.txt files can be found inside the 
+    modes/ dir. Each game mode has a sub dir inside the modes dir and that’s where 
+    you will find the mapcycle.txt for that <span class=SpellE>gamemode</span>. 
+    Think of each mapcycle.txt as tracks. <span
+class=SpellE>HLE</span> will stay on that track until the game mode is changed.  
+    Note that some maps may not work for some <span class=SpellE>gamemodes</span> 
+    so <span class=GramE>its</span> up to the admin to configure these correctly. 
+    <span class=SpellE>HLE</span> maps have prefixes which help clients understand 
+    what they are for.</p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q3"></a><font color="#FF0000">Q: What kind of maps 
+    does <span class=SpellE>hle</span> have?</font></span></b></p>
+  <p><b>A: </b>There are three different <span class=GramE>kind</span> of maps. 
+    The first map is standard map which has no prefix or simply <span class=SpellE>hle</span>_. 
+    Any <span
+class=SpellE>gamemode</span> expect <span class=SpellE>ctf</span> can be played 
+    on these maps. However <span class=SpellE>ctp</span> mode will only work correctly 
+    if there is an <span class=SpellE>existing</span> <span class=SpellE>ctp</span> 
+    file for that map inside the modes/<span class=SpellE>ctp</span>/ dir.  The 
+    second type of map is the dual map which is prefixed <span class=SpellE>hledual</span>_ 
+    <span class=GramE>Only</span> <span
+class=SpellE>lms</span>, <span class=SpellE>lts</span>, action, <span
+class=SpellE>teamaction</span>, practice, and duel are allowed of these maps. 
+    The finial type of map is the <span class=SpellE>ctf</span> map which is prefixed 
+    <span class=SpellE>hlectf</span>_. The only <span class=SpellE>gamemodes</span> 
+    allowed on this type of map are <span class=SpellE>ctf</span>, <span
+class=SpellE>lms</span>, <span class=SpellE>lts</span>, action, <span
+class=SpellE>teamaction</span>, practice, and duel.</p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q4"></a><font color="#FF0000">Q: How do I configure 
+    a map to work with <span
+class=SpellE>ctp</span> mode?</font></span></b></p>
+  <p><b>A: </b>To create a <span
+class=SpellE>ctp</span> file for a map, type &quot;<span class=SpellE>create_ctp_file</span>&quot; 
+    in the console. You must be the server admin and the server must be local 
+    unless you use &quot;<span class=SpellE>rcon</span>&quot;. Creating a file 
+    will delete any old <span class=SpellE>ctp</span> files for that particular 
+    level. <span
+class=SpellE><span class=GramE>ctp</span></span> files have no file extension. 
+    They are named after the map they are created in. After you have created the 
+    file, anyone in the server may then type &quot;<span class=SpellE>add_flag</span>&quot; 
+    and a <span class=SpellE>ctp</span> flag will be dropped. If the flag is not 
+    placed correctly it may fall through the level. If this occurs you need to 
+    start over by typing &quot;<span class=SpellE>create_ctp_file</span>&quot; 
+    again. All the flags will be deleted as will the file. After you <span
+class=GramE>are</span> done placing the flags, type &quot;<span class=SpellE>complete_ctp_file</span>&quot; 
+    in the console. If you do not complete the file, may not be saved. After you 
+    complete the file, you may play. No restart is necessary.</p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q5"></a><font color="#FF0000">Q: What is vadmin.txt 
+    and how does it relate to <span
+class=SpellE>rcon</span>?</font></span></b></p>
+  <p><b>A: </b>Virtual admin is a new feature build into <span class=SpellE>HLE</span> 
+    which helps <span
+class=SpellE>admins</span> abstract the power of the <span class=SpellE>rcon</span> 
+    password to clients without giving the <span class=SpellE>rcon</span> password 
+    away. <span class=SpellE>Vadmin</span> also lets you restrict any number of 
+    commands you wish. In a way, it’s like creating groups with permissions or 
+    restrictions. <span class=SpellE>Vadmin</span> is also more convenient in 
+    the sense that no passwords are required. If a player belongs in a <span
+class=SpellE>vadmin</span> group he or she is automatically <span class=SpellE>op’ed</span> 
+    to his or her position upon joining the server. <span class=SpellE>Vadmin</span> 
+    is a very complex feature and there is an entire document written about it 
+    in the help/ dir. If you plan on hosting a dedicated server, we strongly recommend 
+    you read about <span class=SpellE>vadmin</span> and use it!<br>
+    (refer to <a href="vadmin.html">vadmin.html</a>) </p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q6"></a><font color="#FF0000">Q: How can I control 
+    voting?</font></span></b></p>
+  <p><b>A: </b>Voting is pretty easy to control. There is a vote.txt file inside 
+    each <span
+class=SpellE>hle</span> dir. That file corresponds to which commends and settings 
+    clients are allowed to vote for. Any word not found in that file will not 
+    be allowed to be voted on by any client.  If you wish to turn off voting altogether 
+    set <span class=SpellE>sv_allowvotes</span> to 0. If you only wish to disable 
+    voting during matches then set <span
+class=SpellE>mp_allowmatchvotes</span> to 0.  Both those commands should be placed 
+    in the <span class=SpellE>game.cfg</span> file.</p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q7"></a><font color="#FF0000">Q: What is a match?</font></span></b></p>
+  <p><b>A: </b>A match is when a <span class=SpellE>matchstart</span> is evoked 
+    by an admin or by clients who voted for it. Matches can only be started in 
+    <span class=SpellE>gamemodes</span> which tolerate them namely <span class=SpellE>teamplay</span> 
+    game modes. During match play, clients can not join the match if they are 
+    <span
+class=SpellE>spectating</span>. Clients are also restricted from changing teams 
+    during the match without a vote being passed. Voting can also be restricted 
+    during a match by the <span class=SpellE>mp_allowmatchvotes</span> variable.  
+  </p>
+  <p><a href="#top">back to questions</a></p>
+  <p>If clients who are in the match drop or get disconnected they have a resume 
+    time set by <span class=SpellE>mp_resumetime</span> for which they are allowed 
+    to rejoin the server and automatically spawn back into he match with the same 
+    score. Matches always start with a timer countdown from 5 seconds to 0. Upon 
+    the start of the match, all scores and entities are reset as if the server 
+    restarted.  There are 3 types of matches. <span class=SpellE><span class=GramE>matchstart</span></span> 
+    1, 2, or 3.  <span class=SpellE><span
+class=GramE>matchstart</span></span> 1 is the standard <span class=SpellE>matchstart</span> 
+    which <span class=SpellE>respawns</span> all entities, resets the scores and 
+    locks the teams, but does not load players. <span class=SpellE>Matchstart</span> 
+    2 is like 1 <span class=GramE>expect</span> is also loads the players and 
+    <span
+class=SpellE>matchstart</span> 3 simply locks the teams and resets the scores 
+    without a countdown. To evoke a <span class=SpellE>matchstart</span> type 
+    “<span
+class=SpellE>matchstart</span> x<span class=GramE>”  Where</span> x is a number 
+    0-3. <span
+class=SpellE><span class=GramE>matchstart</span></span> 0 cancels the match.</p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q8"></a><font color="#FF0000">Q: How do I edit 
+    prevent entities from spawning?</font></span></b></p>
+  <p><b>A: </b>Some <span
+class=SpellE>admins</span> dislike weapons and we are aware of this so we coded 
+    a special <span class=SpellE>cvar</span> which is called &quot;<span
+class=SpellE>sv_banentities</span>&quot;.  This <span class=SpellE>cvar</span> 
+    is a string of entities or <span
+class=SpellE>entity</span> prefixes which are not allowed to spawn. We took advantage 
+    of this <span class=SpellE>cvar</span> for action duel and <span
+class=SpellE>lms</span> game modes. You can see an example of how it works in 
+    those corresponding game mode <span class=SpellE>config</span> files inside 
+    the modes dir.  <span class=SpellE><span
+class=GramE>sv_banentities</span></span> works like this:  </p>
+  <p>Each word is separated with a <span class=GramE>semicolon ;</span> When half-life 
+    elite spawns an entity it first checks to see if any part of the name of that 
+    <span class=SpellE>entity</span> is in <span class=SpellE>sv_banentities</span> 
+    string. For example if the string looked like this “<span class=SpellE>weapon_shotgun</span>” 
+    then the shotgun would never spawn. However if you wanted to ban all weapons, 
+    you would not need to type each of them out, you could simply have “weapon” 
+    and then each entity whose name started with weapon would not spawn. </p>
+  <p>Now let’s say you wanted all the weapons banned expect for the shotgun. Then 
+    you can do this: “<span class=SpellE>weapon<span class=GramE>;~</span>weapon_shotgun</span>” 
+    The tilde character is the exclusion character. And it reverses the restriction 
+    for that one word.  So in other words, all weapons are banned expect the shotgun. 
+    But a more efficient way of writing this would be “<span class=SpellE>weapon<span class=GramE>;~</span>weapon_sh</span>” 
+    which means all weapons are banned expect any weapon starting with <span
+class=SpellE>weapon_sh</span>. <span class=GramE>However only one weapon starts 
+    with that string (namely, the shotgun).</span>  The reason for using the prefixes 
+    is that the entire string can not be longer then 128 letters total including 
+    semicolons. The shorthand method makes the string much more efficient. Take 
+    a look at the examples inside action mode.</p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q9"></a><font color="#FF0000">Q: How can I control 
+    which game modes can be played?</font></span></b></p>
+  <p><b>A: </b><span
+class=SpellE>mp_banmodes</span> controls which modes are not allowed on a server. 
+    Each mode added to this string will be restricted on the server. For example 
+    <span class=SpellE>mp_banmodes</span> “<span class=SpellE>ffa<span
+class=GramE>;teamplay</span>;action</span>”.  Nor <span class=SpellE><span class=GramE>ffa</span></span>, 
+    <span
+class=SpellE>teamplay</span> and action would not be allowed if this was the value 
+    of the <span class=SpellE>mp_banmodes</span> string. Notice each game mode 
+    is separated with a semicolon. Leave this string blank if you wish to allow 
+    all modes.  Note that this <span
+class=SpellE>cvar</span> dose not check prefixes therefore you must put the entire 
+    name of the game mode in the string if you wish to ban it.</p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><span
+style='color:fuchsia'><a name="Q10"></a><font color="#FF0000">Q: What are the 
+    new commands I need to know as an admin?</font></span></b></p>
+  <p><b>A: </b> Here is a complete list of the new commands and variables you 
+    should know</p>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><a name="commands"></a>New server commands:</b></p>
+  <table width="726" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:blue'>matchstart</span></span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">0-3     (0 cancels, 1 starts 
+        unloaded, 2 starts loaded, 3 does not <span class=SpellE>respawn</span> 
+        players)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:blue'>create_ctp_file</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> (opens or overwrites a <span
+class=SpellE>ctp</span> file for a map and removes all flags in a level)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:blue'>complete_ctp_file</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(closes and locks the <span
+class=SpellE>ctp</span> file)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:blue'>create_loc_file</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(opens or overwrites a loc file 
+        for a map)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:blue'>complete_loc_file</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(closes and locks the loc file)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=GramE><span style='color:blue'>add</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(refer to <a href="vadmin.html">vadmin.html</a>)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=GramE><span style='color:blue'>remove</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(refer to <span
+class=SpellE><a href="vadmin.html">vadmin</a></span><a href="vadmin.html">.html</a>)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span style='color:blue'>emit</span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">&lt;<span
+class=SpellE>serverID</span>#&gt; &lt;<span class=SpellE>teamname</span>&gt; (emits 
+        a player into the play queue for a round based mode, or emits a player 
+        into a match with the given team name if provided; example &quot;emit 
+        4 red&quot; that will force the 4th player to spawn under the red team. 
+        to find the players <span class=SpellE>serverID</span># number type &quot;status&quot;)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=GramE><span style='color:blue'>eject</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">&lt;<span class=SpellE>serverID</span>#&gt; 
+        (this is the opposite of emit, it will force a player into spectator mode, 
+        thus removing him from the play queue or a match if started. To find <span class=GramE>a 
+        players</span> <span
+class=SpellE>serverID</span>#, type &quot;status&quot;; example &quot;eject 5&quot;)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=GramE><span style='color:blue'>start</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">string     (string will be the 
+        name of your <span class=SpellE>config</span> file for a particular tournament 
+        inside the tournament dir. This command starts the tourney)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=GramE><span style='color:blue'>action</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span
+class=SpellE>teamplay:NO</span>, <span class=SpellE>matchstart</span>: NO)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=GramE><span style='color:blue'>duel</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span
+class=SpellE>teamplay:NO</span>, <span class=SpellE>matchstart</span>: NO)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:blue'>lms</span></span></span>&quot; </p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span class=SpellE>teamplay:NO</span>, 
+        <span class=SpellE>matchstart</span>: NO)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=GramE><span style='color:blue'>tournament</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span
+class=SpellE>teamplay:NO</span>, <span class=SpellE>matchstart</span>: NO)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:blue'>lts</span></span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span class=SpellE>teamplay:YES</span>, 
+        <span class=SpellE>matchstart</span>: NO)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:blue'>teamaction</span></span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span class=SpellE>teamplay:YES</span>, 
+        <span
+class=SpellE>matchstart</span>: NO)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:blue'>ffa</span></span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span class=SpellE>teamplay:NO</span>, 
+        <span class=SpellE>matchstart</span>: YES)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:blue'>teamplay</span></span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span class=SpellE>teamplay:YES</span>, 
+        <span
+class=SpellE>matchstart</span>: YES)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:blue'>ctp</span></span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span class=SpellE>teamplay:YES</span>, 
+        <span class=SpellE>matchstart</span>: YES)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:blue'>ctf</span></span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span class=SpellE>teamplay:YES</span>, 
+        <span class=SpellE>matchstart</span>: YES)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal">&quot;<span class=GramE><span style='color:blue'>practice</span></span>&quot;</td>
+      <td width="90%" valign="top" class="Normal">(changes game mode; <span
+class=SpellE>teamplay:NO</span>, <span class=SpellE>matchstart</span>: NO)</td>
+    </tr>
+  </table>
+  <p><a href="#top">back to questions</a></p>
+  <p><b><a name="cvars"></a>New server <span
+class=SpellE>cvars</span>:</b></p>
+  <table width="725" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:green'>nextmap</span></span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">(overwrites <span class=SpellE>mapcycle</span> 
+        for the <span class=SpellE>nextlevel</span>, the <span class=SpellE>nextlevel</span> 
+        will be <span class=SpellE>nextmap</span> string)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_maxteams</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">2-6     (# of allowed teams, 
+        will work in this order: <span class=SpellE>blue<span class=GramE>,red,green,yellow,purple,orange</span></span>)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_flaghandicap</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">0-1 (% of gauss jump reduction 
+        when clients have flags in <span class=SpellE>ctf</span> mode)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_gamemode</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">string (current <span class=SpellE>gamemode</span>)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_spawnlimit</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> <p> 0-*     (or tourney mode 
+          only<span
+class=GramE>,  this</span> controls the number of <span class=SpellE>frags</span> 
+          which determines the end of the match)</p>
+        <p><span class=GramE>again</span> by holding the jump button, this evens 
+          the playing field against bunny hop <span class=SpellE>scripters</span>)</p></td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_roundtime</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> <p> 0-*     (for duel/<span class=SpellE>lms</span>/tournament 
+          rounds, this appears at the top of the screen opposed to <span class=SpellE><span
+style='color:black'>mp_timelimit</span></span><span style='color:green'> </span>which 
+          is at the bottom)</p></td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p><span class=GramE>&quot;<span class=SpellE><span
+style='color:green'>mp_winlimit</span></span>&quot;</span></p></td>
+      <td width="90%" valign="top" class="Normal"> <p><span class=GramE>0-*</span>     
+          <span class=GramE>(for <span class=SpellE>ctf</span>, <span class=SpellE>lms</span>, 
+          tournament and duel.</span>  <span
+class=GramE>this</span> controls the number of wins to end the level)</p></td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_spawnform</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> <p>0-1     (0 = start normal, 
+          1 = start loaded)</p></td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_tossitem</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> 0-1     (prevents dropping 
+        items like the <span class=SpellE>longjump</span>)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_corpsequeue</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> <p>0-*     (# of dead bodies 
+          allowed at once)</p></td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_loselongjump</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">0-1     (forces the <span class=SpellE>longjump</span> 
+        to fall off a player after he/she dies)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_showlongjump</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> 0-1     (if on, this will hide 
+        the third person <span class=SpellE>longjump</span> on <span
+class=GramE>players</span> backs, restart or <span class=SpellE><span
+style='color:black'>changelevel</span></span><span style='color:black'> is </span>required)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_satchelexplode</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> <p>0-1     (If set to 1, this 
+          will allow other players to blow up your satchels with other explosives, 
+          this is used for <span
+class=SpellE>CTF</span> and <span class=SpellE>CTP</span> modes to prevent flag 
+          camping.</p></td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_radar</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">0-1     (turns on and off the 
+        radar for all clients, restart or <span class=SpellE>changelevel</span> 
+        required)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span class=GramE><span
+style='color:green'>mp_allowmatchvotes</span></span></span><span
+style='color:green'><font color="#000000">&quot;</font></span></p></td>
+      <td width="90%" valign="top" class="Normal"> <p>0-1     (turns voting off 
+          during a match, in which case only a server admin can alter server settings)</p></td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_resumetime</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">0-*     (number of seconds a 
+        player is allowed to join back into a match after <span
+class=GramE>a disconnect</span>. The players score will be restored.)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_banmodes</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">string     (ban all game modes 
+        you <span class=SpellE>don't</span> wish for clients to vote on)</td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_allowvotes</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal"> <p>0-1     (enables/disables 
+          all voting)</p></td>
+    </tr>
+    <tr> 
+      <td width="10%" valign="top" class="Normal"> <p>&quot;<span class=SpellE><span style='color:green'>mp_banentities</span></span>&quot;</p></td>
+      <td width="90%" valign="top" class="Normal">string     (ban weapons and 
+        entities here, if you only give part of the string, it bans every entity 
+        example &quot;weapon_&quot; bans every weapon)</td>
+    </tr>
+  </table>
+  <p><a href="#top">back to questions</a></p>
+</div>
+</body>
+</html>

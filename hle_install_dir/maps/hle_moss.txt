@@ -1,0 +1,11 @@
+Name:		Moss
+Game:		Half-Life Elite Death Match
+Author:	SantagausS
+
+Moss for Half-Life Elite is a Medium to large sized map that 
+will cater to a wide range of player styles and tactics.  It 
+has a fairly even spread of weapons through out the map. 
+Player spawn in points are also spread evenly through the map.  
+The map is generously stocked with weapons and ammo. This map 
+should have a fairly flexible set of successful tactics. Small 
+jumps and technical movement are important in this map.  
