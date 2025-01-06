@@ -1,0 +1,258 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: cl_dll - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP511.tmp" with contents
+[
+oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib winmm.lib ../utils/vgui/lib/win32_vc6/vgui.lib wsock32.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:".\Debug/client.pdb" /debug /machine:I386 /out:".\Debug\client.dll" /implib:".\Debug/client.lib" 
+".\Debug\crossbow.obj"
+".\Debug\crowbar.obj"
+".\Debug\egon.obj"
+".\Debug\ev_hldm.obj"
+".\Debug\gauss.obj"
+".\Debug\handgrenade.obj"
+".\Debug\hl_baseentity.obj"
+".\Debug\hl_events.obj"
+".\Debug\hl_objects.obj"
+".\Debug\hl_weapons.obj"
+".\Debug\hl_wpn_glock.obj"
+".\Debug\hle_maploader.obj"
+".\Debug\hornetgun.obj"
+".\Debug\interface.obj"
+".\Debug\m249.obj"
+".\Debug\mp5.obj"
+".\Debug\python.obj"
+".\Debug\rpg.obj"
+".\Debug\satchel.obj"
+".\Debug\shockrifle.obj"
+".\Debug\shotgun.obj"
+".\Debug\sniper.obj"
+".\Debug\sporelauncher.obj"
+".\Debug\squeakgrenade.obj"
+".\Debug\tripmine.obj"
+".\Debug\voice_banmgr.obj"
+".\Debug\voice_status.obj"
+".\Debug\ammo.obj"
+".\Debug\ammo_secondary.obj"
+".\Debug\ammohistory.obj"
+".\Debug\battery.obj"
+".\Debug\cdll_int.obj"
+".\Debug\com_weapons.obj"
+".\Debug\death.obj"
+".\Debug\demo.obj"
+".\Debug\entity.obj"
+".\Debug\ev_common.obj"
+".\Debug\events.obj"
+".\Debug\flashlight.obj"
+".\Debug\GameStudioModelRenderer.obj"
+".\Debug\geiger.obj"
+".\Debug\health.obj"
+".\Debug\hud.obj"
+".\Debug\hud_anounce.obj"
+".\Debug\hud_ctf.obj"
+".\Debug\hud_ctp.obj"
+".\Debug\hud_duel.obj"
+".\Debug\hud_msg.obj"
+".\Debug\hud_redraw.obj"
+".\Debug\hud_servers.obj"
+".\Debug\hud_spectator.obj"
+".\Debug\hud_time.obj"
+".\Debug\hud_update.obj"
+".\Debug\in_camera.obj"
+".\Debug\input.obj"
+".\Debug\inputw32.obj"
+".\Debug\locs.obj"
+".\Debug\maps.obj"
+".\Debug\menu.obj"
+".\Debug\message.obj"
+".\Debug\parsemsg.obj"
+".\Debug\pm_debug.obj"
+".\Debug\pm_math.obj"
+".\Debug\pm_shared.obj"
+".\Debug\radar.obj"
+".\Debug\saytext.obj"
+".\Debug\status_icons.obj"
+".\Debug\statusbar.obj"
+".\Debug\studio_util.obj"
+".\Debug\StudioModelRenderer.obj"
+".\Debug\text_message.obj"
+".\Debug\train.obj"
+".\Debug\tri.obj"
+".\Debug\util.obj"
+".\Debug\vgui_checkbutton2.obj"
+".\Debug\vgui_ClassMenu.obj"
+".\Debug\vgui_ConsolePanel.obj"
+".\Debug\vgui_ControlConfigPanel.obj"
+".\Debug\vgui_CustomObjects.obj"
+".\Debug\vgui_grid.obj"
+".\Debug\vgui_helpers.obj"
+".\Debug\vgui_HelpMenu.obj"
+".\Debug\vgui_HLE_Menu.obj"
+".\Debug\vgui_int.obj"
+".\Debug\vgui_listbox.obj"
+".\Debug\vgui_loadtga.obj"
+".\Debug\vgui_MOTDWindow.obj"
+".\Debug\vgui_Radar.obj"
+".\Debug\vgui_SchemeManager.obj"
+".\Debug\vgui_ScorePanel.obj"
+".\Debug\vgui_scrollbar2.obj"
+".\Debug\vgui_ServerBrowser.obj"
+".\Debug\vgui_slider2.obj"
+".\Debug\vgui_SpectatorPanel.obj"
+".\Debug\vgui_TeamFortressViewport.obj"
+".\Debug\vgui_teammenu.obj"
+".\Debug\view.obj"
+".\Debug\voice_vgui_tweakdlg.obj"
+".\Debug\winamp.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP511.tmp"
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP512.bat" with contents
+[
+@echo off
+copy           .\Debug\client.dll             \\Kyle2\hle\cl_dlls\
+copy           .\Debug\client.dll             C:\Steam\SteamApps\steams~1.com\half-life\hle\cl_dlls\
+]
+Creating command line "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP512.bat"
+Linking...
+LINK : LNK6004: .\Debug\client.dll not found or not built by the last incremental link; performing full link
+libcpmtd.lib(locale.obj) : error LNK2005: "public: static class std::locale::id  std::codecvt<char,char,int>::id" (?id@?$codecvt@DDH@std@@2V0locale@2@A) already defined in locs.obj
+libcpmtd.lib(locale.obj) : warning LNK4006: "public: static class std::locale::id  std::codecvt<char,char,int>::id" (?id@?$codecvt@DDH@std@@2V0locale@2@A) already defined in locs.obj; second definition ignored
+   Creating library .\Debug/client.lib and object .\Debug/client.exp
+locs.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete[](void *)" (??_V@YAXPAX@Z)
+locs.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new[](unsigned int)" (??_U@YAPAXI@Z)
+locs.obj : error LNK2001: unresolved external symbol "public: __thiscall std::_Mutex::~_Mutex(void)" (??1_Mutex@std@@QAE@XZ)
+locs.obj : error LNK2001: unresolved external symbol "long const  std::_BADOFF" (?_BADOFF@std@@3JB)
+locs.obj : error LNK2001: unresolved external symbol "public: void __thiscall std::_String_base::_Xlen(void)const " (?_Xlen@_String_base@std@@QBEXXZ)
+locs.obj : error LNK2001: unresolved external symbol "public: void __thiscall std::_String_base::_Xran(void)const " (?_Xran@_String_base@std@@QBEXXZ)
+locs.obj : error LNK2001: unresolved external symbol "public: __thiscall std::_Lockit::_Lockit(int)" (??0_Lockit@std@@QAE@H@Z)
+locs.obj : error LNK2001: unresolved external symbol "public: void __thiscall std::_Mutex::_Unlock(void)" (?_Unlock@_Mutex@std@@QAEXXZ)
+locs.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,struct std::_DebugHeapTag_t const &,char *,int)" (??3@YAXPAXABU_DebugHeapTag_t@std@@PADH@Z)
+locs.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned int,struct std::_DebugHeapTag_t const &,char *,int)" (??2@YAPAXIABU_DebugHeapTag_t@std@@PADH@Z)
+locs.obj : error LNK2001: unresolved external symbol "struct std::_DebugHeapTag_t const  std::_DebugHeapTag" (?_DebugHeapTag@std@@3U_DebugHeapTag_t@1@B)
+locs.obj : error LNK2001: unresolved external symbol "__int64  std::_Fpz" (?_Fpz@std@@3_JA)
+locs.obj : error LNK2001: unresolved external symbol "public: void __thiscall std::ios_base::_Addstd(void)" (?_Addstd@ios_base@std@@QAEXXZ)
+locs.obj : error LNK2001: unresolved external symbol "public: __thiscall std::_Mutex::_Mutex(void)" (??0_Mutex@std@@QAE@XZ)
+locs.obj : error LNK2001: unresolved external symbol "public: void __thiscall std::_Mutex::_Lock(void)" (?_Lock@_Mutex@std@@QAEXXZ)
+locs.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new[](unsigned int,struct std::_DebugHeapTag_t const &,char *,int)" (??_U@YAPAXIABU_DebugHeapTag_t@std@@PADH@Z)
+locs.obj : error LNK2001: unresolved external symbol "public: void __thiscall std::locale::facet::_Register(void)" (?_Register@facet@locale@std@@QAEXXZ)
+locs.obj : error LNK2001: unresolved external symbol "public: __thiscall bad_cast::bad_cast(char const *)" (??0bad_cast@@QAE@PBD@Z)
+locs.obj : error LNK2001: unresolved external symbol "public: class std::locale::facet const * __thiscall std::locale::_Getfacet(unsigned int)const " (?_Getfacet@locale@std@@QBEPBVfacet@12@I@Z)
+.\Debug\client.dll : fatal error LNK1120: 19 unresolved externals
+Error executing link.exe.
+<h3>Output Window</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP516.tmp" with contents
+[
+/nologo /o".\Debug/cl_dll.bsc" 
+".\Debug\crossbow.sbr"
+".\Debug\crowbar.sbr"
+".\Debug\egon.sbr"
+".\Debug\ev_hldm.sbr"
+".\Debug\gauss.sbr"
+".\Debug\handgrenade.sbr"
+".\Debug\hl_baseentity.sbr"
+".\Debug\hl_events.sbr"
+".\Debug\hl_objects.sbr"
+".\Debug\hl_weapons.sbr"
+".\Debug\hl_wpn_glock.sbr"
+".\Debug\hle_maploader.sbr"
+".\Debug\hornetgun.sbr"
+".\Debug\interface.sbr"
+".\Debug\m249.sbr"
+".\Debug\mp5.sbr"
+".\Debug\python.sbr"
+".\Debug\rpg.sbr"
+".\Debug\satchel.sbr"
+".\Debug\shockrifle.sbr"
+".\Debug\shotgun.sbr"
+".\Debug\sniper.sbr"
+".\Debug\sporelauncher.sbr"
+".\Debug\squeakgrenade.sbr"
+".\Debug\tripmine.sbr"
+".\Debug\voice_banmgr.sbr"
+".\Debug\voice_status.sbr"
+".\Debug\ammo.sbr"
+".\Debug\ammo_secondary.sbr"
+".\Debug\ammohistory.sbr"
+".\Debug\battery.sbr"
+".\Debug\cdll_int.sbr"
+".\Debug\com_weapons.sbr"
+".\Debug\death.sbr"
+".\Debug\demo.sbr"
+".\Debug\entity.sbr"
+".\Debug\ev_common.sbr"
+".\Debug\events.sbr"
+".\Debug\flashlight.sbr"
+".\Debug\GameStudioModelRenderer.sbr"
+".\Debug\geiger.sbr"
+".\Debug\health.sbr"
+".\Debug\hud.sbr"
+".\Debug\hud_anounce.sbr"
+".\Debug\hud_ctf.sbr"
+".\Debug\hud_ctp.sbr"
+".\Debug\hud_duel.sbr"
+".\Debug\hud_msg.sbr"
+".\Debug\hud_redraw.sbr"
+".\Debug\hud_servers.sbr"
+".\Debug\hud_spectator.sbr"
+".\Debug\hud_time.sbr"
+".\Debug\hud_update.sbr"
+".\Debug\in_camera.sbr"
+".\Debug\input.sbr"
+".\Debug\inputw32.sbr"
+".\Debug\locs.sbr"
+".\Debug\maps.sbr"
+".\Debug\menu.sbr"
+".\Debug\message.sbr"
+".\Debug\parsemsg.sbr"
+".\Debug\pm_debug.sbr"
+".\Debug\pm_math.sbr"
+".\Debug\pm_shared.sbr"
+".\Debug\radar.sbr"
+".\Debug\saytext.sbr"
+".\Debug\status_icons.sbr"
+".\Debug\statusbar.sbr"
+".\Debug\studio_util.sbr"
+".\Debug\StudioModelRenderer.sbr"
+".\Debug\text_message.sbr"
+".\Debug\train.sbr"
+".\Debug\tri.sbr"
+".\Debug\util.sbr"
+".\Debug\vgui_checkbutton2.sbr"
+".\Debug\vgui_ClassMenu.sbr"
+".\Debug\vgui_ConsolePanel.sbr"
+".\Debug\vgui_ControlConfigPanel.sbr"
+".\Debug\vgui_CustomObjects.sbr"
+".\Debug\vgui_grid.sbr"
+".\Debug\vgui_helpers.sbr"
+".\Debug\vgui_HelpMenu.sbr"
+".\Debug\vgui_HLE_Menu.sbr"
+".\Debug\vgui_int.sbr"
+".\Debug\vgui_listbox.sbr"
+".\Debug\vgui_loadtga.sbr"
+".\Debug\vgui_MOTDWindow.sbr"
+".\Debug\vgui_Radar.sbr"
+".\Debug\vgui_SchemeManager.sbr"
+".\Debug\vgui_ScorePanel.sbr"
+".\Debug\vgui_scrollbar2.sbr"
+".\Debug\vgui_ServerBrowser.sbr"
+".\Debug\vgui_slider2.sbr"
+".\Debug\vgui_SpectatorPanel.sbr"
+".\Debug\vgui_TeamFortressViewport.sbr"
+".\Debug\vgui_teammenu.sbr"
+".\Debug\view.sbr"
+".\Debug\voice_vgui_tweakdlg.sbr"
+".\Debug\winamp.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP516.tmp"
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+client.dll - 21 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

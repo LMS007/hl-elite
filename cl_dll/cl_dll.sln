@@ -1,0 +1,26 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cl_dll", "cl_dll.vcproj", "{7BE25BC7-A87E-44B1-8157-C2AC67106AC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BE25BC7-A87E-44B1-8157-C2AC67106AC5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7BE25BC7-A87E-44B1-8157-C2AC67106AC5}.Debug|Win32.Build.0 = Debug|Win32
+		{7BE25BC7-A87E-44B1-8157-C2AC67106AC5}.Release|Win32.ActiveCfg = Release|Win32
+		{7BE25BC7-A87E-44B1-8157-C2AC67106AC5}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = cl_dll.vcproj
+		SccProjectName0 = \u0022$/GoldSrc/cl_dll\u0022,\u0020HGEBAAAA
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+	EndGlobalSection
+EndGlobal
