@@ -121,6 +121,12 @@ int CMP5::AddToPlayer( CBasePlayer *pPlayer )
 		return TRUE;
 	}
 	m_pPlayer->m_rgAmmoLast[m_iSecondaryAmmoType] = -1; // hle hack
+	m_lastFireTime = 0;
+	m_ellaspsedTime = 0;
+	m_timeBetweenFires = 0;
+	m_creep = 0;
+	m_totalCreep = 0;
+	m_flPrevPrimaryAttack = 0;
 	return FALSE;
 }
 
@@ -133,26 +139,94 @@ BOOL CMP5::Deploy( )
 void CMP5::PrimaryAttack()
 {
 	// don't fire underwater
+	char buf[400];
+	*buf = NULL;
+	
+
+	/*if(m_iClip==50) {
+		m_lastFireTime = gpGlobals->time;
+		m_testClip = m_iClip;
+		m_flWeaponFireStartTime = gpGlobals->time;
+		m_totalCreep = 0;
+	}*/
+	float shotDelta = gpGlobals->time - m_lastFireTime; // 0.1  -> 0  0.12
+	if(m_lastFireTime == 0 || m_flNextPrimaryAttack == -1 || shotDelta > 0.25) 
+		// after 1/4 of a second, don't keep counting the time, 
+		//we are going to assume the client stopped firing, but the server erally has no idea when the client stopped.
+	{
+		m_lastFireTime = gpGlobals->time;
+		m_testClip = m_iClip;
+		m_flWeaponFireStartTime = gpGlobals->time;
+		m_totalCreep = 0;
+		m_flPrevPrimaryAttack = 0.1;
+		m_testClip = 0;
+	}
+
+	
+	m_ellaspsedTime = gpGlobals->time - m_flWeaponFireStartTime;
+	m_timeBetweenFires = gpGlobals->time - m_lastFireTime; // 0.1  -> 0  0.12
+	
+	// hle fix: dont show client animation if we're not really going to fire.
+	// this is only a problem on the older engine, we think
+	/*if((m_timeBetweenFires != 0) && (m_timeBetweenFires < m_flPrevPrimaryAttack)) {
+		m_iClip--;
+		m_testClip--;
+		m_flNextPrimaryAttack = 0.001; // right away
+		this->PrintState(true);
+		
+		
+		return;
+	}*/
+
+	m_iClip--;
+	int f = 0;
+	if(m_iClip == m_testClip) {
+		f = 1;
+		m_iClip++;
+		#ifdef CLIENT_DLL
+			this->PrintState(true);
+		#endif
+		// DOTO, maybe play client animation and don't reset the lastFireTime
+	}
+	m_testClip = m_iClip;
+
+
+
+	if(m_timeBetweenFires > 0)
+		m_creep = m_timeBetweenFires - m_flPrevPrimaryAttack; // postive or negative
+	else
+		m_creep = 0;
+	m_totalCreep += m_creep;
+
+	
+
+#ifdef CLIENT_DLL
+	//this->PrintState(false);
+	sprintf(buf, "m_flNextPrimaryAttack: %f", m_flNextPrimaryAttack);
+	//sprintf(buf, "UTIL_WeaponTimeBase: %f, m_flNextPrimaryAttack: %f", UTIL_WeaponTimeBase(), m_flNextPrimaryAttack);
+	UTIL_ClientPrintAll(4, buf);
+#endif
+
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
 		PlayEmptySound( );
-		//m_flNextPrimaryAttack = 0.15;
-		SetNextPrimaryAttackDelay(0.15);
+		m_flNextPrimaryAttack = 0.15;
 		return;
 	}
 
 	if (m_iClip <= 0)
 	{
 		PlayEmptySound();
-		//m_flNextPrimaryAttack = 0.15; //15
-		SetNextPrimaryAttackDelay(0.15);
+		m_flNextPrimaryAttack = 0.15; //15
 		return;
 	}
 
 	m_pPlayer->m_iWeaponVolume = NORMAL_GUN_VOLUME;
 	m_pPlayer->m_iWeaponFlash = NORMAL_GUN_FLASH;
 
-	m_iClip--;
+	// still not great....
+	
+
 
 
 	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
@@ -193,18 +267,34 @@ void CMP5::PrimaryAttack()
 		// HEV suit - indicate out of ammo condition
 		m_pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);
 
-	// m_flNextPrimaryAttack is adjusted for time creep
-	SetNextPrimaryAttackDelay(0.1);
 	
+	float flOldPrimaryAttack = m_flNextPrimaryAttack;
+	m_flNextPrimaryAttack = UTIL_WeaponTimeBase() + 0.1; // 0.1
+	//if(m_creep > 0)
+	float nocreep = m_flNextPrimaryAttack;
+	m_flNextPrimaryAttack -= (m_creep); // Adjust for creep
+	
+
 	if ( m_flNextPrimaryAttack < UTIL_WeaponTimeBase() )
-		//m_flNextPrimaryAttack = UTIL_WeaponTimeBase() + 0.1;
-		SetNextPrimaryAttackDelay(0.1);
+		m_flNextPrimaryAttack = UTIL_WeaponTimeBase() + 0.0; // 0.1
 
 	m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + UTIL_SharedRandomFloat( m_pPlayer->random_seed, 10, 15 );
 	
+	if(f == 0)
+		m_lastFireTime = gpGlobals->time;
+	else
+		m_lastFireTime = m_lastFireTime;
+
+	m_flPrevPrimaryAttack = m_flNextPrimaryAttack;
 
 #ifdef CLIENT_DLL
 	this->PrintState(false);
+
+#else
+	char buf2[1300];
+	*buf2 = NULL;
+	sprintf(buf2, "m_lastFireTime: %.5f\n m_flNextPrimaryAttack %.5f\n flOldPrimaryAttack %.5f\n m_creep %.5f\n m_timeBetweenFires %.5f \n", m_lastFireTime, m_flNextPrimaryAttack, flOldPrimaryAttack,m_timeBetweenFires, m_creep);
+	ClientPrint( m_pPlayer->pev, HUD_PRINTCENTER, buf2);
 #endif
 }
 
@@ -216,8 +306,7 @@ void CMP5::SecondaryAttack( void )
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
 		PlayEmptySound( );
-		//m_flNextPrimaryAttack = 0.15;
-		SetNextPrimaryAttackDelay(0.15);
+		m_flNextPrimaryAttack = 0.15;
 		return;
 	}
 
@@ -254,9 +343,8 @@ void CMP5::SecondaryAttack( void )
 
 	PLAYBACK_EVENT( flags, m_pPlayer->edict(), m_usMP52 );
 	
-	//SetNextPrimaryAttackDelay(1);
-	SetNextSecondaryAttackDelay(1);
-
+	m_flNextPrimaryAttack = UTIL_WeaponTimeBase() + 1;
+	m_flNextSecondaryAttack = UTIL_WeaponTimeBase() + 1;
 	m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 5;// idle pretty soon after shooting.
 
 	if (!m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType])
